@@ -107,6 +107,8 @@ One installation per customer on its own server (Ubuntu LTS, nginx, PHP 8.5-FPM,
    `APP_URL`, `APP_KEY` (`php artisan key:generate`), database credentials, `MAIL_*` (sender and SMTP relay),
    `ADMIN_*` (first administrator), `TRUSTED_PROXIES` / `TRUSTED_HOSTS` when behind a proxy, and
    `ANTHROPIC_API_KEY` if the AI features are used. `PLATFORM_ENABLED=false` switches the whole installation off.
+   `MAIL_*` must work for password recovery: the « forgot password » link is sent by e-mail (people without an
+   e-mail address ask an administrator).
 2. **Deploy**
    ```bash
    composer install --no-dev --optimize-autoloader
@@ -120,8 +122,8 @@ One installation per customer on its own server (Ubuntu LTS, nginx, PHP 8.5-FPM,
    ```
    * * * * * cd /path/to/raccord && php artisan schedule:run >> /dev/null 2>&1
    ```
-4. **Queue worker (required)** — thumbnail retries are queued (`QUEUE_CONNECTION=database`); keep a worker running
-   (systemd or Supervisor):
+4. **Queue worker (required)** — thumbnail retries and password recovery e-mails are queued
+   (`QUEUE_CONNECTION=database`); keep a worker running (systemd or Supervisor):
    ```
    php artisan queue:work --sleep=3 --tries=3 --max-time=3600
    ```

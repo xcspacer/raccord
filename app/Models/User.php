@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\Role;
 use App\Models\Concerns\RecordsChanges;
+use App\Notifications\PasswordResetLink;
 use Carbon\CarbonInterface;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -157,6 +158,21 @@ class User extends Authenticatable
     {
         return $this->departure_date !== null
             && $this->departure_date->lte(($on ?? now())->startOfDay());
+    }
+
+    /**
+     * The « forgot password » e-mail, in the person's language. A person who left gets nothing (and could not use
+     * the link either); the answer on screen stays the same, so nobody learns which accounts exist.
+     *
+     * @param  string  $token
+     */
+    public function sendPasswordResetNotification(#[\SensitiveParameter] $token): void
+    {
+        if ($this->hasDeparted()) {
+            return;
+        }
+
+        $this->notify((new PasswordResetLink($token))->locale($this->locale ?: config('app.locale')));
     }
 
     /**

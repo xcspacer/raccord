@@ -39,6 +39,12 @@ return new class extends Migration
             $table->index(['agency_id', 'is_hidden_from_planning', 'planning_order']);
         });
 
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -89,6 +95,7 @@ return new class extends Migration
         Schema::dropIfExists('user_planning_hidden_weeks');
         Schema::dropIfExists('user_agency_periods');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('users');
     }
 };

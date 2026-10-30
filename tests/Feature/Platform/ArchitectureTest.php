@@ -22,6 +22,10 @@ class ArchitectureTest extends TestCase
     private const array PUBLIC_ROUTES = [
         'login' => 'staff sign-in page',
         'login.store' => 'staff sign-in',
+        'password.request' => 'staff « forgot password » page (guests only)',
+        'password.email' => 'staff « forgot password » request: same answer for every e-mail, throttled per e-mail and address',
+        'password.reset' => 'staff new password page, reached from the e-mailed link (guests only)',
+        'password.update' => 'staff new password: only with a valid token of the broker (60 minutes), never for departed people',
         'locale.update' => 'language switch, also on the sign-in pages',
         'branding.logo' => 'company logo shown on the sign-in pages',
         'web-manifest' => 'PWA manifest',
@@ -54,6 +58,7 @@ class ArchitectureTest extends TestCase
         'livewire/billing/my-entries.blade.php' => 3,
         'components/navigation/icon.blade.php' => 1,
         'mail/administrator-alert-text.blade.php' => 4,
+        'mail/password-reset-text.blade.php' => 6,
     ];
 
     /** Folders that must stay free of any client or vendor identity. */

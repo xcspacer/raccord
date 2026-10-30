@@ -8,6 +8,10 @@
 
         <h2 class="login-card__title">{{ __('auth.login_title') }}</h2>
 
+        @if (session('status'))
+            <p class="login-card__status" role="status">{{ session('status') }}</p>
+        @endif
+
         <form method="POST" action="{{ route('login') }}" novalidate>
             @csrf
 
@@ -29,5 +33,9 @@
                 <button type="submit" class="btn btn--primary btn--block">{{ __('auth.login_submit') }}</button>
             </div>
         </form>
+
+        <p class="login-card__footer">
+            <a class="login-card__link" href="{{ route('password.request') }}">{{ __('password_reset.forgot_link') }}</a>
+        </p>
     </section>
 </x-layouts.guest>

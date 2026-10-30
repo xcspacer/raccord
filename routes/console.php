@@ -15,6 +15,7 @@ Schedule::command('ai:purge-usage')->daily()->withoutOverlapping();
 Schedule::command('users:purge-departed')->dailyAt('02:30')->withoutOverlapping();
 Schedule::command('audits:purge-presences')->daily()->withoutOverlapping();
 Schedule::command('users:expire-legacy-passwords')->daily()->withoutOverlapping();
+Schedule::command('auth:clear-resets')->daily()->withoutOverlapping();
 Schedule::command('audits:purge-operations')->daily()->withoutOverlapping();
 Schedule::command('geocoding:prune')->daily()->withoutOverlapping();
 Schedule::command('records:purge-deleted')->daily()->withoutOverlapping();

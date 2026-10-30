@@ -8,9 +8,9 @@ use Illuminate\Support\Str;
 
 /**
  * The security log: its own daily file (channel « security », kept 12 months) with sign-in failures and lockouts,
- * client portal accounts, new users and role or agency changes, revoked sessions. Each line says who acted, from
- * which address and browser; never a password, a token or a position. Events that call for an administrator's
- * attention are written as warnings.
+ * client portal accounts, new users and role or agency changes, revoked sessions, passwords reset by e-mail. Each
+ * line says who acted, from which address and browser; never a password, a token or a position. Events that call
+ * for an administrator's attention are written as warnings.
  */
 class SecurityLog
 {
@@ -45,6 +45,8 @@ class SecurityLog
     public const string AGENCY_CHANGED = 'agency_changed';
 
     public const string SESSIONS_REVOKED = 'sessions_revoked';
+
+    public const string PASSWORD_RESET_BY_EMAIL = 'password_reset_by_email';
 
     public const string PERSONAL_DATA_EXPORTED = 'personal_data_exported';
 

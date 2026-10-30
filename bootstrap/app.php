@@ -92,6 +92,12 @@ return Application::configure(basePath: dirname(__DIR__))
                     'username' => __('auth.throttle', ['seconds' => $exception->getHeaders()['Retry-After'] ?? 60]),
                 ]);
             }
+
+            if ($request->routeIs('password.email') && ! $request->expectsJson()) {
+                return back()->withInput($request->only('email'))->withErrors([
+                    'email' => __('auth.throttle', ['seconds' => $exception->getHeaders()['Retry-After'] ?? 60]),
+                ]);
+            }
         });
 
         // JSON requests without a valid staff session get 401 with the reason (session_revoked / user_disabled).
