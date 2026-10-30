@@ -1,0 +1,74 @@
+/*
+ * Design tokens — identical to the legacy platform (fixed, not configurable per installation).
+ */
+:root {
+    --bg: #0E2836;
+    --bg-panel: #12303F;
+    --bg-panel-2: #163A4B;
+    --line: #2A5468;
+    --line-soft: rgba(143, 170, 184, 0.18);
+    --amber: #F2A104;
+    --amber-ink: #2A1B00;
+    --blue: #4C8FBF;
+    --red: #E4572E;
+    --green: #4FA37B;
+    --slate: #8FAAB8;
+    --ink: #EAF1F2;
+    --ink-dim: #A9C0CB;
+
+    /* Literal colours of the legacy screens (outside its token list), named once here with their exact values. */
+    --ink-on-chip: #0d1a20;
+    --ink-on-alert: #241005;
+    --ink-on-green: #0c2118;
+    --ink-on-toast: #08221a;
+    --ink-on-green-dark: #05130c;
+    --ink-on-blue: #06121c;
+    --ink-on-chip-active: #101820;
+    --green-soft: #7BD3A8;
+    --green-soft-2: #7fd6a8;
+    --green-pale: #9be3bd;
+    --green-ok: #44c98a;
+    --green-switch: #2fae6e;
+    --green-bright: #3DD68C;
+    --red-soft: #ff9b7b;
+    --red-soft-2: #ff9a78;
+    --red-pale: #ffb09a;
+    --red-pink: #FF8A8D;
+    --red-alert: #E5484D;
+    --blue-soft: #8DC3EA;
+    --blue-pale: #9bd0f0;
+    --blue-sky: #7cc4f0;
+    --blue-bright: #2B8FD0;
+    --blue-muted: #4a90c2;
+    --yellow-check: #F2C744;
+    --orange-duplicate: #FF9F43;
+    --orange-duplicate-ink: #FFB86B;
+    --violet: #B69CFF;
+    --violet-ink: #1A0F45;
+    --amber-light: #F8BC3A;
+    --amber-deep: #E8960B;
+    --pill-open-bg: #fdebc2;
+    --pill-open-ink: #8a5a00;
+    --pill-answered-bg: #dbeaf8;
+    --pill-answered-ink: #1b5f93;
+    --pill-closed-bg: #e3e9ed;
+    --pill-closed-ink: #4a5d68;
+    --pdf-viewer-bg: #3a3f44;
+    --pdf-page-bg: #fff;
+    --photo-thumb-bg: #0a1c27;
+    --overlay-modal: rgba(6, 16, 22, 0.65);
+    --overlay-gate: rgba(5, 15, 22, 0.96);
+    --overlay-lightbox: rgba(0, 0, 0, 0.85);
+    --overlay-camera: rgba(0, 0, 0, 0.92);
+    --overlay-sheet: rgba(6, 16, 22, 0.7);
+    --overlay-header: rgba(8, 24, 34, 0.85);
+    --overlay-header-strong: rgba(8, 24, 34, 0.95);
+
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --radius: 6px;
+
+    --page-bg-img: url('../../images/page-background.svg');
+}

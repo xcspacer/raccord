@@ -1,0 +1,935 @@
+/*
+ * « Recette OTDR »: measurement files, setup (diagram, tabs), trace viewer, results and deliverables.
+ * The --o-* tokens follow the platform tokens (fallback values for a page without them).
+ */
+.otdr {
+    --o-bg: var(--bg, #0E2836);
+    --o-panel: var(--bg-panel, #12303F);
+    --o-panel2: var(--bg-panel-2, #163A4B);
+    --o-line: var(--line, #2A5468);
+    --o-soft: var(--line-soft, rgb(143 170 184 / 18%));
+    --o-amber: var(--amber, #F2A104);
+    --o-amber-ink: var(--amber-ink, #2A1B00);
+    --o-blue: var(--blue, #4C8FBF);
+    --o-red: var(--red, #E4572E);
+    --o-green: var(--green, #4FA37B);
+    --o-orange: #F28C28;
+    --o-slate: var(--slate, #8FAAB8);
+    --o-ink: var(--ink, #EAF1F2);
+    --o-dim: var(--ink-dim, #A9C0CB);
+    --o-display: var(--font-display, 'Oswald', sans-serif);
+    --o-body: var(--font-body, 'Inter', system-ui, sans-serif);
+    --o-mono: var(--font-mono, 'IBM Plex Mono', ui-monospace, monospace);
+    --o-link: var(--blue-pale);
+    --o-gain: #6FB2E6;
+    --o-violet: #B98AE8;
+    --o-violet-soft: #C9A6F0;
+    --o-violet-line: #A070D0;
+    --o-detected: #57C785;
+    --o-warning: #F6C26B;
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 16px 48px;
+    color: var(--o-ink);
+    font-family: var(--o-body);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.otdr *,
+.otdr *::before,
+.otdr *::after {
+    box-sizing: border-box;
+}
+
+.otdr [x-cloak] {
+    display: none;
+}
+
+.otdr__state {
+    padding: 28px 0;
+    color: var(--o-dim);
+    text-align: center;
+}
+
+.otdr__title {
+    margin: 4px 0 2px;
+    font-family: var(--o-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.otdr__heading {
+    margin: 0 0 10px;
+    color: var(--o-dim);
+    font-family: var(--o-display);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.otdr__heading--inline {
+    margin: 0;
+}
+
+.otdr__subtitle {
+    margin: 0 0 14px;
+    color: var(--o-dim);
+    font-size: 13px;
+}
+
+.otdr__card {
+    margin-bottom: 12px;
+    padding: 14px;
+    border: 1px solid var(--o-line);
+    border-radius: 8px;
+    background: var(--o-panel);
+}
+
+/* ------------------------------------------------------------------ layout helpers */
+
+.otdr__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.otdr__row--center {
+    justify-content: center;
+}
+
+.otdr__row--between {
+    justify-content: space-between;
+}
+
+.otdr__row--bottom {
+    align-items: flex-end;
+}
+
+.otdr__row--wide {
+    gap: 14px;
+}
+
+.otdr__muted {
+    color: var(--o-dim);
+    font-size: 12.5px;
+}
+
+.otdr__block {
+    display: block;
+}
+
+.otdr__flush {
+    margin: 0;
+}
+
+.otdr__note-first {
+    margin-top: 0;
+}
+
+.otdr__note-last {
+    margin-bottom: 0;
+}
+
+.otdr__left {
+    text-align: left;
+}
+
+.otdr__num {
+    font-family: var(--o-mono);
+}
+
+/* ------------------------------------------------------------------ controls */
+
+.otdr__btn {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 44px;
+    padding: 11px 14px;
+    border: 1px solid var(--o-line);
+    border-radius: 6px;
+    background: var(--o-panel2);
+    color: var(--o-ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+}
+
+.otdr__btn:hover {
+    border-color: var(--o-slate);
+}
+
+.otdr__btn--primary {
+    border-color: var(--o-amber);
+    background: var(--o-amber);
+    color: var(--o-amber-ink);
+}
+
+.otdr__btn:disabled,
+.otdr__btn.is-busy {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.otdr__seg {
+    display: inline-flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border: 1px solid var(--o-line);
+    border-radius: 6px;
+}
+
+.otdr__seg button {
+    min-height: 40px;
+    padding: 9px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--o-dim);
+    font: inherit;
+    cursor: pointer;
+    appearance: none;
+}
+
+.otdr__seg button[aria-pressed='true'] {
+    background: var(--o-panel2);
+    color: var(--o-ink);
+    box-shadow: inset 0 -2px 0 var(--o-amber);
+}
+
+.otdr__seg--treatment {
+    margin-bottom: 12px;
+}
+
+.otdr__seg--tabs {
+    margin: 10px 0;
+}
+
+.otdr__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--o-dim);
+    font-size: 12px;
+}
+
+.otdr__field input {
+    width: 170px;
+    padding: 9px 10px;
+    border: 1px solid var(--o-line);
+    border-radius: 6px;
+    background: var(--o-bg);
+    color: var(--o-ink);
+    font: inherit;
+    font-size: 15px;
+}
+
+.otdr__field .otdr__input--short {
+    width: 120px;
+}
+
+.otdr__select {
+    border: 1px solid var(--o-line);
+    background: var(--o-bg);
+    color: var(--o-ink);
+    font: inherit;
+}
+
+.otdr__select--field {
+    padding: 9px 10px;
+    border-radius: 6px;
+}
+
+.otdr__select--profile {
+    width: 320px;
+    max-width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.otdr__select--small {
+    padding: 3px 4px;
+    border-radius: 4px;
+    font-size: 12.5px;
+}
+
+.otdr__field--profile {
+    margin-bottom: 10px;
+}
+
+.otdr__number {
+    width: 64px;
+    padding: 6px;
+    border: 1px solid var(--o-line);
+    border-radius: 4px;
+    background: var(--o-bg);
+    color: var(--o-ink);
+    font: inherit;
+    font-size: 13px;
+    text-align: right;
+}
+
+.otdr__number--wide {
+    width: 72px;
+}
+
+.otdr__check {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    font-size: 13.5px;
+}
+
+.otdr__check--auto {
+    gap: 8px;
+    margin: 8px 0 4px;
+}
+
+.otdr__check--top {
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.otdr__check--top input {
+    margin-top: 3px;
+}
+
+.otdr__check--wide {
+    min-width: 260px;
+}
+
+.otdr__check--dim {
+    color: var(--o-dim);
+    font-size: 13px;
+}
+
+.otdr__link {
+    min-height: 32px;
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    color: var(--o-link);
+    font: inherit;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    appearance: none;
+}
+
+.otdr__file {
+    gap: 6px;
+}
+
+.otdr__file-button {
+    padding: 4px 10px;
+    border: 1px solid var(--o-line);
+    border-radius: 4px;
+    background: var(--o-panel2);
+    color: var(--o-ink);
+    font-size: 13px;
+}
+
+.file-picker__input:focus-visible + .otdr__file-button {
+    outline: 2px solid var(--o-amber);
+    outline-offset: 2px;
+}
+
+.otdr__file-name {
+    color: var(--o-dim);
+    font-size: 13px;
+}
+
+/* ------------------------------------------------------------------ step 1: files */
+
+.otdr__drop {
+    padding: 18px;
+    border: 1.5px dashed var(--o-line);
+    border-radius: 8px;
+    color: var(--o-dim);
+    text-align: center;
+}
+
+.otdr__drop.is-over {
+    border-color: var(--o-amber);
+    color: var(--o-ink);
+}
+
+.otdr__drop-help {
+    margin: 10px 0 0;
+}
+
+.otdr__progress {
+    height: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--o-soft);
+}
+
+.otdr__progress > i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--o-amber);
+    transition: width 0.15s;
+}
+
+/* ------------------------------------------------------------------ step 2: setup */
+
+.otdr__schema {
+    padding: 10px 8px;
+    border: 1px solid var(--o-soft);
+    border-radius: 8px;
+    background: var(--o-bg);
+}
+
+.otdr__schema-svg {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+}
+
+.otdr__svg-ink {
+    fill: var(--o-dim);
+}
+
+.otdr__svg-ink-stroke {
+    stroke: var(--o-dim);
+}
+
+.otdr__group {
+    margin: 0 0 10px;
+    padding: 8px 10px 10px;
+    border: 1px solid var(--o-soft);
+    border-radius: 8px;
+}
+
+.otdr__group > legend {
+    padding: 0 6px;
+    color: var(--o-ink);
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+.otdr__group--detection {
+    margin-top: 10px;
+}
+
+.otdr__hint {
+    margin: 6px 0 0;
+}
+
+.otdr__default-note {
+    margin: 4px 0 0;
+}
+
+.otdr__choice {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    min-width: 72px;
+    min-height: 64px;
+    padding: 6px 10px;
+    border: 1.5px solid var(--o-line);
+    border-radius: 8px;
+    background: var(--o-bg);
+    color: var(--o-dim);
+    font: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+    appearance: none;
+}
+
+.otdr__choice:hover {
+    border-color: var(--o-slate);
+}
+
+.otdr__choice.is-on {
+    border-color: var(--o-amber);
+    background: var(--o-panel2);
+    color: var(--o-ink);
+    box-shadow: 0 0 0 1px var(--o-amber) inset;
+}
+
+.otdr__thresholds--narrow,
+.otdr__table-wrap--narrow {
+    max-width: 520px;
+}
+
+.otdr__thresholds td.otdr__threshold-group {
+    background: var(--o-panel2);
+    color: var(--o-ink);
+    font-family: var(--o-body);
+    font-weight: 600;
+    text-align: left;
+}
+
+.otdr__table td.otdr__threshold-label {
+    font-family: var(--o-body);
+    text-align: left;
+    white-space: normal;
+}
+
+.otdr__threshold-hint {
+    font-size: 11.5px;
+}
+
+.otdr__table tr.is-inactive {
+    opacity: 0.55;
+}
+
+.otdr__reset {
+    margin-top: 8px;
+}
+
+.otdr__options {
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.otdr__nro-pm {
+    margin-top: 12px;
+}
+
+.otdr__corrections {
+    margin-top: 10px;
+}
+
+/* ------------------------------------------------------------------ results */
+
+.otdr__light {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.otdr__dot {
+    flex: none;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: currentcolor;
+    box-shadow: 0 0 0 4px rgb(0 0 0 / 25%), 0 0 22px currentcolor;
+}
+
+.otdr__level-0 {
+    color: var(--o-green);
+}
+
+.otdr__level-1 {
+    color: var(--o-orange);
+}
+
+.otdr__level-2 {
+    color: var(--o-red);
+}
+
+.otdr__status {
+    color: var(--o-ink);
+    font-family: var(--o-display);
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.otdr__criteria {
+    display: grid;
+    gap: 6px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.otdr__criterion {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.otdr__pip {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentcolor;
+    transform: translateY(1px);
+}
+
+.otdr__criterion-label {
+    color: var(--o-ink);
+    font-weight: 600;
+}
+
+.otdr__criterion-detail {
+    color: var(--o-dim);
+    font-size: 12.5px;
+}
+
+.otdr__kv {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 16px;
+    margin: 1em 0;
+    font-size: 13px;
+}
+
+.otdr__kv > div {
+    display: contents;
+}
+
+.otdr__kv dt {
+    color: var(--o-dim);
+}
+
+.otdr__kv dd {
+    margin: 0;
+    font-family: var(--o-mono);
+    text-align: right;
+}
+
+.otdr__todo {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.otdr__todo-item {
+    padding: 9px 11px;
+    border-left: 3px solid var(--o-red);
+    border-radius: 4px;
+    background: var(--o-bg);
+}
+
+.otdr__todo-item.is-information {
+    border-left-color: var(--o-slate);
+}
+
+.otdr__todo-item.is-neutralized {
+    border-left-color: var(--o-violet-line);
+}
+
+.otdr__todo-where {
+    font-weight: 600;
+}
+
+.otdr__todo-what {
+    color: var(--o-dim);
+    font-size: 13px;
+}
+
+.otdr__todo-actions {
+    margin-top: 4px;
+}
+
+.otdr__repairs {
+    margin-top: 10px;
+}
+
+.otdr__repair-messages {
+    margin-top: 8px;
+}
+
+.otdr__table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--o-soft);
+    border-radius: 6px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.otdr__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+
+.otdr__table th,
+.otdr__table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--o-soft);
+    text-align: right;
+    white-space: nowrap;
+}
+
+.otdr__table th {
+    position: sticky;
+    top: 0;
+    background: var(--o-panel2);
+    color: var(--o-dim);
+    font-weight: 600;
+}
+
+.otdr__table td:first-child,
+.otdr__table th:first-child {
+    text-align: left;
+}
+
+.otdr__table td {
+    font-family: var(--o-mono);
+}
+
+.otdr__table .otdr__link {
+    min-height: 0;
+    padding: 0;
+    font-family: var(--o-mono);
+    font-size: 12.5px;
+}
+
+.otdr__table td.otdr__cell-text {
+    font-family: var(--o-body);
+}
+
+.otdr__value--out {
+    color: var(--o-red);
+    font-weight: 700;
+}
+
+.otdr__value--gain {
+    color: var(--o-gain);
+}
+
+.otdr__value--neutralized {
+    color: var(--o-violet);
+    font-weight: 700;
+}
+
+.otdr__group-detail {
+    margin-bottom: 8px;
+    border: 1px solid var(--o-soft);
+    border-radius: 6px;
+}
+
+.otdr__group-detail > summary {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.otdr__group-detail > summary::-webkit-details-marker {
+    display: none;
+}
+
+.otdr__group-name {
+    flex: 1;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+}
+
+.otdr__group-body {
+    padding: 0 8px 8px;
+}
+
+.otdr__badge {
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--o-panel2);
+    color: var(--o-dim);
+    font-size: 11.5px;
+    white-space: nowrap;
+}
+
+.otdr__badge--bad {
+    background: rgb(228 87 46 / 18%);
+    color: #FF9A7A;
+}
+
+.otdr__warnings {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--o-warning);
+    font-size: 13px;
+}
+
+.otdr__warn-text {
+    color: var(--o-warning);
+    font-size: 13px;
+}
+
+.otdr__legend {
+    margin: 8px 0 0;
+}
+
+/* ------------------------------------------------------------------ trace viewer */
+
+.otdr__trace-tabs {
+    margin-top: 8px;
+}
+
+.otdr__trace-file {
+    margin: 8px 0;
+}
+
+.otdr__plot {
+    border: 1px solid var(--o-soft);
+    border-radius: 6px;
+    background: var(--o-bg);
+}
+
+.otdr__plot.is-adding {
+    border-color: var(--o-amber);
+}
+
+.otdr__plot-svg {
+    display: block;
+    cursor: default;
+}
+
+.otdr__plot.is-adding .otdr__plot-svg {
+    cursor: crosshair;
+}
+
+.otdr__plot-grid {
+    stroke: var(--o-soft);
+}
+
+.otdr__plot-label {
+    fill: var(--o-dim);
+}
+
+.otdr__plot-marker {
+    stroke: var(--o-amber);
+}
+
+.otdr__plot-marker-label {
+    fill: var(--o-amber);
+}
+
+.otdr__plot-event {
+    --otdr-tone: #6FB2E6;
+
+    cursor: pointer;
+}
+
+.otdr__plot-event-line {
+    stroke: var(--otdr-tone);
+}
+
+.otdr__plot-event-tag {
+    fill: var(--otdr-tone);
+}
+
+.otdr__plot-event.is-selected .otdr__plot-event-tag {
+    stroke: var(--o-ink);
+}
+
+.otdr__plot-event-label {
+    fill: #0E2836;
+}
+
+.otdr__plot-event--ignored {
+    --otdr-tone: var(--o-slate);
+}
+
+.otdr__plot-event--end {
+    --otdr-tone: var(--o-dim);
+}
+
+.otdr__plot-event--detected {
+    --otdr-tone: var(--o-detected);
+}
+
+.otdr__plot-event--added {
+    --otdr-tone: var(--o-violet);
+}
+
+.otdr__plot-event--event {
+    --otdr-tone: var(--o-link);
+}
+
+.otdr__plot-event--connector {
+    --otdr-tone: var(--o-amber);
+}
+
+.otdr__plot-event--splice {
+    --otdr-tone: var(--o-gain);
+}
+
+.otdr__trace-tools {
+    margin-top: 8px;
+}
+
+.otdr__trace-table {
+    margin-top: 10px;
+}
+
+.otdr__table tr.is-ignored {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.otdr__table tr.is-detected {
+    color: var(--o-detected);
+}
+
+.otdr__table tr.is-added {
+    color: var(--o-violet-soft);
+}
+
+.otdr__slope-tag {
+    margin-left: 0.3em;
+    font-size: 11px;
+}
+
+.otdr__detected {
+    color: var(--o-detected);
+}
+
+/* ------------------------------------------------------------------ deliverables */
+
+.otdr__export-summary {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.otdr__pre-repair {
+    margin-top: 8px;
+}
+
+.otdr__actions {
+    margin-top: 12px;
+}
+
+/* ------------------------------------------------------------------ phone */
+
+@media (max-width: 560px) {
+    .otdr {
+        padding: 10px 12px 40px;
+    }
+
+    .otdr__field input {
+        width: 100%;
+    }
+
+    .otdr__field {
+        flex: 1 1 140px;
+    }
+
+    .otdr__status {
+        font-size: 19px;
+    }
+
+    .otdr__seg button,
+    .otdr__link,
+    .otdr__check {
+        min-height: 44px;
+    }
+
+    .otdr__table .otdr__link {
+        min-height: 0;
+    }
+}

@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'title' => 'Carte des chantiers',
+    'mode_current' => 'En cours & à venir',
+    'mode_all' => 'Tous',
+    'recenter' => 'Recentrer',
+    'running' => 'En cours',
+    'confirmed' => 'Confirmé à venir',
+    'forecast' => 'Prévisionnel',
+    'hint' => 'molette : zoom · double-clic : recentrer',
+    'locating' => '· localisation de :k…',
+    'whole_map' => '← Vue d\'ensemble',
+    'unlocated' => 'Ville non reconnue / absente :',
+    'off_map' => 'Hors carte (îles éloignées, outre-mer, étranger) :',
+    'no_webgl' => 'Carte 3D indisponible : WebGL n\'est pas pris en charge par ce navigateur.',
+    'located' => 'Chantiers localisés :',
+    'none' => 'Aucun chantier à afficher.',
+    'loading' => 'Chargement…',
+    'unavailable' => 'Carte indisponible : vérifiez la connexion.',
+    'audit' => 'Audit',
+    'works_current' => [
+        'one' => ':n chantier en cours ou à venir',
+        'few' => ':n chantiers en cours ou à venir',
+        'many' => ':n chantiers en cours ou à venir',
+        'other' => ':n chantiers en cours ou à venir',
+    ],
+    'works_all' => [
+        'one' => ':n chantier',
+        'few' => ':n chantiers',
+        'many' => ':n chantiers',
+        'other' => ':n chantiers',
+    ],
+    'places' => [
+        'one' => ':n lieu sur la carte',
+        'few' => ':n lieux sur la carte',
+        'many' => ':n lieux sur la carte',
+        'other' => ':n lieux sur la carte',
+    ],
+    'sites_count' => [
+        'one' => ':n chantier',
+        'few' => ':n chantiers',
+        'many' => ':n chantiers',
+        'other' => ':n chantiers',
+    ],
+];

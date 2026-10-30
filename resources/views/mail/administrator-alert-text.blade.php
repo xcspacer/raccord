@@ -1,0 +1,7 @@
+{!! $greeting !!}
+
+{!! $body !!}
+
+{!! $hint !!}
+
+{!! $reason !!}

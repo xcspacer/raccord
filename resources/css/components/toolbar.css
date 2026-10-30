@@ -1,0 +1,68 @@
+/* Filter bar above a list: filters on the left, main action on the right. */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.toolbar__filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar__filters {
+    flex: 1;
+}
+
+.toolbar .search-input {
+    flex: 1;
+    width: auto;
+    min-width: 220px;
+    margin-bottom: 0;
+}
+
+.select-filter {
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+}
+
+.select-filter:focus {
+    border-color: var(--amber);
+    outline: none;
+}
+
+.toolbar .search-input,
+.toolbar .select-filter {
+    padding: 8px 10px;
+    background: var(--bg-panel);
+    font-size: 13px;
+}
+
+@media (min-width: 641px) {
+    .toolbar__filters {
+        flex: none;
+    }
+
+    .toolbar .search-input {
+        flex: none;
+        width: auto;
+        min-width: 190px;
+    }
+}
+
+/* Actions the side menu already offers (from 1100 px) are not repeated above the list. */
+@media (min-width: 1100px) {
+    .toolbar__in-menu {
+        display: none;
+    }
+}

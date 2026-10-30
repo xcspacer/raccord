@@ -1,0 +1,98 @@
+@page {
+    margin: 24mm 12mm 16mm;
+}
+
+body {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 9pt;
+    color: #1f2937;
+}
+
+.pdf-running {
+    position: fixed;
+    top: -18mm;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.pdf-running__logo {
+    width: 34mm;
+}
+
+.pdf-running__company {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.pdf-running__audit {
+    text-align: right;
+    font-size: 8pt;
+    color: #6b7280;
+}
+
+.pdf-unit__title {
+    margin: 0 0 1mm;
+    font-size: 18pt;
+}
+
+.pdf-unit__folder {
+    margin: 0 0 4mm;
+    font-size: 9pt;
+    color: #6b7280;
+}
+
+.pdf-facts {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pdf-facts th {
+    width: 44mm;
+    padding: 0 0 1.2mm;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pdf-facts td {
+    padding: 0 0 1.2mm;
+    vertical-align: top;
+}
+
+.pdf-section {
+    margin: 5mm 0 2mm;
+    font-size: 12pt;
+    font-weight: bold;
+    page-break-after: avoid;
+}
+
+.pdf-note {
+    margin: 0 0 2mm;
+}
+
+.pdf-photos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pdf-photos td {
+    width: 25%;
+    padding: 0 1mm 2mm;
+    vertical-align: top;
+    text-align: center;
+}
+
+.pdf-photos__cell {
+    height: 33mm;
+    border: 1px solid #e5e7eb;
+}
+
+.pdf-photos__cell img {
+    max-width: 100%;
+    max-height: 33mm;
+}
+
+.pdf-photos__caption {
+    font-size: 6.5pt;
+    color: #6b7280;
+}

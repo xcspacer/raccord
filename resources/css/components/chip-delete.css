@@ -1,0 +1,18 @@
+/* Small square ✕ button used to remove an item from a list. */
+.chip-delete {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--ink-dim);
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.chip-delete:hover {
+    border-color: rgba(228, 87, 46, 0.5);
+    color: var(--red);
+}

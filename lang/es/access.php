@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Gestionar accesos',
+    'hint' => 'Active o desactive, para cada rol, las funciones que puede ver y utilizar. El administrador siempre tiene acceso a todo. Un punto naranja indica un ajuste distinto del comportamiento original. El servidor comprueba el acceso en cada acción.',
+    'reset' => 'Restablecer los valores por defecto',
+    'confirm_reset' => '¿Restablecer todos los accesos al comportamiento original?',
+    'saved' => 'Acceso guardado',
+    'nothing_to_reset' => 'Ningún ajuste que restablecer.',
+    'feature' => 'Función',
+    'admin' => 'Admin',
+    'admin_always' => 'El administrador siempre tiene acceso',
+    'changed' => 'Modificado respecto al ajuste por defecto',
+    'not_applicable' => 'No aplica a este rol',
+    'roles' => [
+        'supervisor' => 'Supervisor',
+        'technician' => 'Técnico',
+        'design_office' => 'Oficina',
+    ],
+    'descriptions' => [
+        'absences' => 'Ver e introducir las ausencias y vacaciones de los técnicos.',
+        'create_work_site' => 'Crear obras nuevas (modificar y eliminar sigue reservado a los gestores).',
+        'technician_space' => 'Material, vehículo, hoja de horas e informe diario del técnico.',
+        'billing' => 'Fichajes de cliente, gastos y facturación.',
+        'otdr_acceptance' => 'Mediciones reflectométricas: control, DCO, entregables.',
+        'equipment_management' => 'Inventario y asignación del material.',
+        'audits' => 'Auditorías de PM en modo óptico y completo. Supervisor: según la agencia (solo planificación día a día).',
+        'weekly_timesheet' => 'Exportación Excel del fichaje semanal de auditorías.',
+        'expense_reports' => 'Introducir y generar el informe de gastos mensual.',
+        'client_control' => 'Seguimiento de las auditorías por el cliente.',
+        'media_library' => 'Fotos y documentos de las obras. Supervisor: según la agencia (solo planificación día a día).',
+        'fibre_code' => 'N.º de fibra ↔ tubo / fibra.',
+        'design_office_workflow' => 'Validación de las auditorías caja por caja por la oficina técnica (cola, decisiones). Técnicos: empezar y enviar las cajas.',
+    ],
+    'summary' => 'Solo se guardan los ajustes que difieren del valor por defecto.',
+];

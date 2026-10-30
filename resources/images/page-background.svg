@@ -1,0 +1,82 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E2836"/>
+      <stop offset="55%" stop-color="#0B222E"/>
+      <stop offset="100%" stop-color="#081A24"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F2A104" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#F2A104" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#F2A104" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dotAmber" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE3A6" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#F2A104" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F2A104" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dotBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#DCEEFA" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#4C8FBF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#4C8FBF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+
+  <!-- strand set: each strand = halo + mid + core, no filters, for universal rendering -->
+  <g fill="none" stroke-linecap="round">
+    <!-- strand A (blue) -->
+    <path d="M -60,180 C 500,220 1000,140 1560,420 S 1880,520 1990,540" stroke="#4C8FBF" stroke-width="10" opacity="0.05"/>
+    <path d="M -60,180 C 500,220 1000,140 1560,420 S 1880,520 1990,540" stroke="#4C8FBF" stroke-width="4" opacity="0.14"/>
+    <path d="M -60,180 C 500,220 1000,140 1560,420 S 1880,520 1990,540" stroke="#9BD0F0" stroke-width="1.1" opacity="0.55"/>
+
+    <!-- strand B (cyan) -->
+    <path d="M -60,320 C 480,300 980,360 1520,470 S 1880,530 1990,540" stroke="#7FD0E8" stroke-width="9" opacity="0.04"/>
+    <path d="M -60,320 C 480,300 980,360 1520,470 S 1880,530 1990,540" stroke="#7FD0E8" stroke-width="3.5" opacity="0.11"/>
+    <path d="M -60,320 C 480,300 980,360 1520,470 S 1880,530 1990,540" stroke="#C7EAF6" stroke-width="0.9" opacity="0.42"/>
+
+    <!-- strand C (amber, primary) -->
+    <path d="M -60,860 C 500,780 1000,640 1540,560 S 1880,545 1990,540" stroke="#F2A104" stroke-width="10" opacity="0.06"/>
+    <path d="M -60,860 C 500,780 1000,640 1540,560 S 1880,545 1990,540" stroke="#F2A104" stroke-width="4" opacity="0.16"/>
+    <path d="M -60,860 C 500,780 1000,640 1540,560 S 1880,545 1990,540" stroke="#FBD584" stroke-width="1.1" opacity="0.6"/>
+
+    <!-- strand D (soft amber) -->
+    <path d="M -60,700 C 460,680 960,600 1500,555 S 1880,542 1990,540" stroke="#F2A104" stroke-width="8" opacity="0.04"/>
+    <path d="M -60,700 C 460,680 960,600 1500,555 S 1880,542 1990,540" stroke="#F2A104" stroke-width="3" opacity="0.1"/>
+    <path d="M -60,700 C 460,680 960,600 1500,555 S 1880,542 1990,540" stroke="#F6D896" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- strand E (dim blue, far background) -->
+    <path d="M -60,1000 C 520,900 1020,660 1550,565 S 1880,545 1990,540" stroke="#4C8FBF" stroke-width="7" opacity="0.03"/>
+    <path d="M -60,1000 C 520,900 1020,660 1550,565 S 1880,545 1990,540" stroke="#4C8FBF" stroke-width="2.5" opacity="0.08"/>
+    <path d="M -60,1000 C 520,900 1020,660 1550,565 S 1880,545 1990,540" stroke="#9BD0F0" stroke-width="0.7" opacity="0.28"/>
+
+    <!-- strand F (dim cyan, far background) -->
+    <path d="M -60,40 C 480,140 980,320 1530,500 S 1880,535 1990,540" stroke="#7FD0E8" stroke-width="7" opacity="0.03"/>
+    <path d="M -60,40 C 480,140 980,320 1530,500 S 1880,535 1990,540" stroke="#7FD0E8" stroke-width="2.5" opacity="0.07"/>
+    <path d="M -60,40 C 480,140 980,320 1530,500 S 1880,535 1990,540" stroke="#C7EAF6" stroke-width="0.6" opacity="0.22"/>
+  </g>
+
+  <!-- extra faint strands scattered for depth -->
+  <g fill="none" stroke-linecap="round" opacity="0.5">
+    <path d="M -50,120 C 400,180 900,60 1450,260 S 2050,120 2200,260" stroke="#4C8FBF" stroke-width="1" opacity="0.14"/>
+    <path d="M -50,760 C 350,820 800,700 1300,860 S 1900,760 2200,880" stroke="#4C8FBF" stroke-width="1" opacity="0.13"/>
+    <path d="M -50,940 C 450,880 950,1000 1500,900 S 2050,980 2200,940" stroke="#F2A104" stroke-width="1" opacity="0.13"/>
+  </g>
+
+  <!-- connector / junction node glow -->
+  <circle cx="1990" cy="540" r="150" fill="url(#nodeGlow)"/>
+  <circle cx="1990" cy="540" r="9" fill="#FFE3A6"/>
+  <circle cx="1990" cy="540" r="24" fill="none" stroke="#F2A104" stroke-width="1.2" opacity="0.35"/>
+  <circle cx="1990" cy="540" r="40" fill="none" stroke="#F2A104" stroke-width="0.8" opacity="0.18"/>
+
+  <!-- light pulse dots along strands (soft radial gradients, no filter needed) -->
+  <circle cx="260" cy="205" r="10" fill="url(#dotBlue)"/>
+  <circle cx="720" cy="185" r="8" fill="url(#dotBlue)"/>
+  <circle cx="1180" cy="290" r="10" fill="url(#dotBlue)"/>
+  <circle cx="300" cy="815" r="11" fill="url(#dotAmber)"/>
+  <circle cx="780" cy="720" r="9" fill="url(#dotAmber)"/>
+  <circle cx="1260" cy="605" r="10" fill="url(#dotAmber)"/>
+  <circle cx="1600" cy="470" r="8" fill="url(#dotBlue)"/>
+  <circle cx="1720" cy="510" r="9" fill="url(#dotAmber)"/>
+</svg>

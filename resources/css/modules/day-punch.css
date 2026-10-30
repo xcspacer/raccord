@@ -1,0 +1,56 @@
+/* Day punch: blocking start window and the header buttons. */
+.overlay--gate {
+    z-index: 120;
+    background: rgba(6, 16, 22, 0.88);
+}
+
+.overlay--gate[hidden] {
+    display: none;
+}
+
+.gate {
+    max-width: 420px;
+    text-align: center;
+}
+
+.gate__clock {
+    margin: 0 0 6px;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    font-size: 15px;
+}
+
+.gate__hint {
+    margin: 0 0 20px;
+    color: var(--ink-dim);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.gate__start {
+    padding: 16px 20px;
+    font-size: 18px;
+}
+
+.gate__message {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: var(--ink-dim);
+    font-size: 12.5px;
+}
+
+.gate__logout {
+    margin-top: 14px;
+}
+
+.day-punch-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn--end-day {
+    border-color: rgba(242, 161, 4, 0.6);
+    color: var(--amber);
+    font-weight: 700;
+}

@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Agencies',
+    'hint' => 'The company\'s agencies and how each one plans. Names are free; only the mode matters.',
+    'add_title' => 'Add an agency',
+    'edit_title' => 'Edit agency',
+    'list_title' => 'Agencies',
+    'fields' => [
+        'name' => 'Name',
+        'mode' => 'Planning mode',
+        'capacity' => 'Crews available per day',
+        'default_client' => 'Default client',
+    ],
+    'mode_hint' => [
+        'detailed' => 'Multi-day work sites with a number of crews; overload warning based on the capacity.',
+        'daily' => 'One-day work sites with a lead technician, partners, boxes and audits.',
+    ],
+    'capacity_hint' => 'Above this number of crews on the same day, an overload warning appears.',
+    'default_client_hint' => 'Used when no client is given (one-day work sites and audits).',
+    'mode_locked' => 'The mode can no longer be changed: this agency already has work sites.',
+    'last_agency' => 'Not possible: at least one agency must remain.',
+    'in_use' => ':name still has users or work sites: move them first.',
+    'add' => 'Add',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'confirm_delete' => 'Delete the agency “:name”?',
+    'saved' => 'Agency saved.',
+    'deleted' => 'Agency deleted.',
+    'move_up' => 'Move up',
+    'move_down' => 'Move down',
+    'capacity_short' => ':count crews/day',
+    'usage' => ':users user(s) · :sites work site(s)',
+];

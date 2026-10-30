@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Manage access',
+    'hint' => 'Switch on or off, for each role, the functions it can see and use. The administrator always has access to everything. An orange dot marks a setting that differs from the original behaviour. Access is checked by the server on every action.',
+    'reset' => 'Restore the default values',
+    'confirm_reset' => 'Restore every access to the original behaviour?',
+    'saved' => 'Access saved',
+    'nothing_to_reset' => 'No setting to restore.',
+    'feature' => 'Function',
+    'admin' => 'Admin',
+    'admin_always' => 'The administrator always has access',
+    'changed' => 'Changed from the default setting',
+    'not_applicable' => 'Not applicable to this role',
+    'roles' => [
+        'supervisor' => 'Supervisor',
+        'technician' => 'Technician',
+        'design_office' => 'Design office',
+    ],
+    'descriptions' => [
+        'absences' => 'See and enter technicians\' absences and leave.',
+        'create_work_site' => 'Create new work sites (editing and deleting stay with managers).',
+        'technician_space' => 'The technician\'s equipment, vehicle, timesheet and daily return.',
+        'billing' => 'Client punches, expenses and billing.',
+        'otdr_acceptance' => 'Reflectometer measurements: control, DCO, deliverables.',
+        'equipment_management' => 'Equipment inventory and assignment.',
+        'audits' => 'PM audits in optical and full mode. Supervisor: depends on the agency (day-by-day planning only).',
+        'weekly_timesheet' => 'Excel export of the weekly audit timesheet.',
+        'expense_reports' => 'Entering and generating the monthly expense report.',
+        'client_control' => 'The client\'s follow-up of audits.',
+        'media_library' => 'Photos and documents of the work sites. Supervisor: depends on the agency (day-by-day planning only).',
+        'fibre_code' => 'Fibre number ↔ tube / fibre.',
+        'design_office_workflow' => 'Box-by-box validation of the audits by the design office (queue, decisions). Technicians: start and submit boxes.',
+    ],
+    'summary' => 'Only settings that differ from the default are stored.',
+];

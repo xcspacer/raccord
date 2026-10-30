@@ -1,0 +1,275 @@
+/* "Fonctions" menu: groups coloured after the fibre tube colour code. */
+.fn-menu .section-label {
+    margin-bottom: 12px;
+}
+
+.fn-menu__state {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 22px;
+}
+
+.fn-group {
+    --tube: #8FAAB8;
+
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 38px;
+}
+
+.fn-group--planning { --tube: #4C8FBF; }
+.fn-group--field { --tube: #F47C10; }
+.fn-group--audits { --tube: var(--green-bright); }
+.fn-group--tools { --tube: #F5D400; }
+.fn-group--administration { --tube: var(--violet); }
+
+.fn-group::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 8px;
+    width: 3px;
+    border-radius: 3px;
+    background: linear-gradient(var(--tube), rgba(255, 255, 255, 0.08));
+    opacity: 0.6;
+}
+
+.fn-group::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    width: 7px;
+    height: 44px;
+    border-radius: 7px;
+    background: linear-gradient(transparent, #fff 55%, var(--tube));
+    filter: blur(1px);
+    opacity: 0.9;
+    animation: fn-pulse 3.6s ease-in-out infinite;
+}
+
+.fn-group:nth-of-type(2)::after { animation-delay: 0.7s; }
+.fn-group:nth-of-type(3)::after { animation-delay: 1.4s; }
+.fn-group:nth-of-type(4)::after { animation-delay: 2.1s; }
+.fn-group:nth-of-type(5)::after { animation-delay: 2.8s; }
+
+.fn-group__title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 10px -38px;
+    color: var(--tube);
+    font: 600 13px var(--font-display);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.fn-group__title i {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+    border-radius: 50%;
+    background: var(--tube);
+    box-shadow: 0 0 12px var(--tube), inset 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.fn-group__title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--tube), transparent);
+    opacity: 0.5;
+}
+
+.fn-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 9px;
+    padding: 10px 14px 10px 10px;
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    background: linear-gradient(90deg, rgba(22, 58, 75, 0.78), rgba(22, 58, 75, 0.3));
+    color: var(--ink);
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.22s ease, border-color 0.22s, box-shadow 0.22s, background 0.22s;
+}
+
+.fn-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tube), transparent 90%);
+    opacity: 0.55;
+    transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.fn-item__icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1.5px solid var(--tube);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), var(--overlay-header));
+    color: var(--tube);
+    transition: background 0.22s, color 0.22s, box-shadow 0.22s, transform 0.3s;
+}
+
+.fn-item__icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fn-item__text {
+    min-width: 0;
+}
+
+.fn-item__label {
+    display: block;
+    font: 600 15px var(--font-body);
+}
+
+.fn-item__description {
+    display: block;
+    margin-top: 1px;
+    color: var(--ink-dim);
+    font-size: 12px;
+}
+
+.fn-item__go {
+    position: relative;
+    flex: none;
+    width: 26px;
+    height: 2px;
+    margin-left: auto;
+    border-radius: 2px;
+    background: var(--tube);
+    opacity: 0.55;
+    transition: width 0.25s, opacity 0.25s;
+}
+
+.fn-item__go::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: -1px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid var(--tube);
+    border-right: 2px solid var(--tube);
+    transform: rotate(45deg);
+}
+
+.fn-item:hover,
+.fn-item:focus-visible {
+    border-color: var(--tube);
+    background: linear-gradient(90deg, rgba(22, 58, 75, 0.98), rgba(22, 58, 75, 0.55));
+    box-shadow: 0 0 26px -8px var(--tube);
+    outline: none;
+    transform: translateX(5px);
+}
+
+.fn-item:hover::before,
+.fn-item:focus-visible::before {
+    box-shadow: 0 0 10px var(--tube);
+    opacity: 1;
+}
+
+.fn-item:hover .fn-item__icon,
+.fn-item:focus-visible .fn-item__icon {
+    background: var(--tube);
+    box-shadow: 0 0 18px var(--tube);
+    color: #0E2836;
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.fn-item:hover .fn-item__go,
+.fn-item:focus-visible .fn-item__go {
+    width: 40px;
+    opacity: 1;
+}
+
+/* The page shown right now. */
+.fn-item.is-current {
+    border-color: var(--tube);
+    background: linear-gradient(90deg, rgba(22, 58, 75, 0.98), rgba(22, 58, 75, 0.55));
+    box-shadow: 0 0 22px -8px var(--tube);
+}
+
+.fn-item.is-current .fn-item__icon {
+    background: var(--tube);
+    box-shadow: 0 0 14px var(--tube);
+    color: #0E2836;
+}
+
+.fn-item:active {
+    transform: translateX(5px) scale(0.985);
+}
+
+@keyframes fn-pulse {
+    0% {
+        top: 20px;
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.95;
+    }
+
+    88% {
+        opacity: 0.95;
+    }
+
+    100% {
+        top: calc(100% - 64px);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fn-group::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .fn-item,
+    .fn-item__icon {
+        transition: none;
+    }
+}
+
+.fn-item__badge {
+    margin-left: 8px;
+    background: var(--red);
+    color: #FFF;
+    border-radius: 10px;
+    padding: 0 7px;
+    font-size: 11px;
+    vertical-align: 1px;
+}
+
+.fn-item.has-alert {
+    border-color: var(--red);
+    animation: fn-item-alert 1.8s infinite;
+}
+
+@keyframes fn-item-alert {
+    0% { box-shadow: 0 0 0 0 rgb(228 87 46 / 55%); }
+    70% { box-shadow: 0 0 0 8px rgb(228 87 46 / 0%); }
+    100% { box-shadow: 0 0 0 0 rgb(228 87 46 / 0%); }
+}

@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Gérer les accès',
+    'hint' => 'Activez ou désactivez, pour chaque rôle, les fonctions qu\'il peut voir et utiliser. L\'administrateur a toujours accès à tout. Un point orange signale un réglage différent du comportement d\'origine. L\'accès est vérifié par le serveur à chaque action.',
+    'reset' => 'Rétablir les valeurs par défaut',
+    'confirm_reset' => 'Rétablir tous les accès au comportement d\'origine ?',
+    'saved' => 'Accès enregistré',
+    'nothing_to_reset' => 'Aucun réglage à rétablir.',
+    'feature' => 'Fonction',
+    'admin' => 'Admin',
+    'admin_always' => 'L\'administrateur a toujours accès',
+    'changed' => 'Modifié par rapport au réglage par défaut',
+    'not_applicable' => 'Sans objet pour ce rôle',
+    'roles' => [
+        'supervisor' => 'Superviseur',
+        'technician' => 'Technicien',
+        'design_office' => 'BE',
+    ],
+    'descriptions' => [
+        'absences' => 'Voir et saisir les absences et congés des techniciens.',
+        'create_work_site' => 'Créer de nouveaux chantiers (modifier et supprimer reste réservé aux gestionnaires).',
+        'technician_space' => 'Matériel, véhicule, timesheet et retour journalier du technicien.',
+        'billing' => 'Pointage client, dépenses et facturation.',
+        'otdr_acceptance' => 'Mesures réflectométriques : contrôle, DCO, livrables.',
+        'equipment_management' => 'Inventaire et attribution du matériel.',
+        'audits' => 'Audits des PM en mode optique et complet. Superviseur : selon l\'agence (planning jour par jour uniquement).',
+        'weekly_timesheet' => 'Export Excel du pointage hebdomadaire des audits.',
+        'expense_reports' => 'Saisie et génération de la note de frais mensuelle.',
+        'client_control' => 'Suivi des audits par le client.',
+        'media_library' => 'Photos et documents des chantiers. Superviseur : selon l\'agence (planning jour par jour uniquement).',
+        'fibre_code' => 'N° de fibre ↔ tube / fibre.',
+        'design_office_workflow' => 'Validation des audits boîte par boîte par le BE (file, décisions). Techniciens : démarrer et soumettre les boîtes.',
+    ],
+    'summary' => 'Seuls les réglages qui s\'écartent de l\'origine sont mémorisés.',
+];

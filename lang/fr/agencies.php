@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Agences',
+    'hint' => 'Les agences de l\'entreprise et leur façon de planifier. Les noms sont libres ; seul le mode compte.',
+    'add_title' => 'Ajouter une agence',
+    'edit_title' => 'Modifier l\'agence',
+    'list_title' => 'Agences',
+    'fields' => [
+        'name' => 'Nom',
+        'mode' => 'Mode de planification',
+        'capacity' => 'Équipes disponibles par jour',
+        'default_client' => 'Client par défaut',
+    ],
+    'mode_hint' => [
+        'detailed' => 'Chantiers sur plusieurs jours, avec un nombre d\'équipes ; alerte de surcharge selon la capacité.',
+        'daily' => 'Chantiers d\'un jour, avec technicien principal, binômes, boîtes et audits.',
+    ],
+    'capacity_hint' => 'Au-delà de ce nombre d\'équipes un même jour, un avertissement de surcharge apparaît.',
+    'default_client_hint' => 'Utilisé quand le client n\'est pas précisé (chantiers d\'un jour et audits).',
+    'mode_locked' => 'Le mode ne peut plus être changé : cette agence a déjà des chantiers.',
+    'last_agency' => 'Impossible : il doit rester au moins une agence.',
+    'in_use' => ':name a encore des utilisateurs ou des chantiers : déplacez-les d\'abord.',
+    'add' => 'Ajouter',
+    'save' => 'Enregistrer',
+    'cancel' => 'Annuler',
+    'edit' => 'Modifier',
+    'delete' => 'Supprimer',
+    'confirm_delete' => 'Supprimer l\'agence « :name » ?',
+    'saved' => 'Agence enregistrée.',
+    'deleted' => 'Agence supprimée.',
+    'move_up' => 'Monter',
+    'move_down' => 'Descendre',
+    'capacity_short' => ':count équipes/jour',
+    'usage' => ':users utilisateur(s) · :sites chantier(s)',
+];

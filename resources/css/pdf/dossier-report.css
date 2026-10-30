@@ -1,0 +1,123 @@
+/* Report of the official dossier of an audit (dompdf). */
+@page {
+    margin: 24mm 12mm 16mm;
+}
+
+body {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8.5pt;
+    color: #1f2937;
+}
+
+.dossier-report__running {
+    position: fixed;
+    top: -18mm;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.dossier-report__logo {
+    width: 34mm;
+}
+
+.dossier-report__company {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.dossier-report__cabinet {
+    text-align: right;
+    font-size: 8pt;
+    color: #6b7280;
+}
+
+.dossier-report__title {
+    margin: 0 0 3mm;
+    font-size: 18pt;
+    color: #0e2836;
+}
+
+.dossier-report__facts {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dossier-report__facts th {
+    width: 50mm;
+    padding: 0 0 1.2mm;
+    text-align: left;
+    vertical-align: top;
+}
+
+.dossier-report__facts td {
+    padding: 0 0 1.2mm;
+    vertical-align: top;
+}
+
+.dossier-report__section {
+    margin: 6mm 0 2mm;
+    font-size: 12pt;
+    color: #0e2836;
+    page-break-after: avoid;
+}
+
+.dossier-report__text {
+    margin: 0 0 1.5mm;
+}
+
+.dossier-report__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dossier-report__table th {
+    padding: 1.2mm;
+    border-bottom: 0.4mm solid #0e2836;
+    text-align: left;
+    font-size: 8pt;
+}
+
+.dossier-report__table td {
+    padding: 1.2mm;
+    border-bottom: 0.2mm solid #d3dee4;
+    vertical-align: top;
+}
+
+.dossier-report__sheet {
+    margin: 0 0 4mm;
+    padding: 0 0 2mm;
+    border-bottom: 0.2mm solid #d3dee4;
+    page-break-inside: avoid;
+}
+
+.dossier-report__sheet-title {
+    margin: 0 0 1mm;
+    font-weight: bold;
+}
+
+.dossier-report__photos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dossier-report__side {
+    width: 50%;
+    vertical-align: top;
+}
+
+.dossier-report__side-title {
+    margin: 0 0 1mm;
+    font-size: 7.5pt;
+    color: #5c7280;
+}
+
+.dossier-report__thumbnail {
+    width: 27mm;
+    margin: 0 1mm 1mm 0;
+}
+
+.dossier-report__missing {
+    font-size: 7pt;
+    color: #6b7280;
+}

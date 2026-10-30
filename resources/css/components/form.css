@@ -1,0 +1,144 @@
+.field {
+    margin-bottom: 14px;
+}
+
+.field__label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--ink-dim);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.field__input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+}
+
+.field__hint {
+    margin: 4px 0 0;
+    color: var(--slate);
+    font-size: 11.5px;
+}
+
+.field__error {
+    margin: 4px 0 0;
+    color: var(--red);
+    font-size: 11.5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.form-actions--stretch {
+    justify-content: stretch;
+}
+
+.field-row {
+    display: flex;
+    gap: 12px;
+}
+
+.field-row .field {
+    flex: 1;
+}
+
+.search-input {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 14px;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+}
+
+.search-input:focus {
+    border-color: var(--amber);
+    outline: none;
+}
+
+@media (max-width: 640px) {
+    .field-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.field-warning {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 1px solid rgba(228, 87, 46, 0.55);
+    border-radius: var(--radius);
+    background: rgba(228, 87, 46, 0.14);
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.4;
+}
+
+.field-warning b {
+    color: var(--red);
+}
+
+.field--narrow {
+    flex: 0 0 34%;
+}
+
+.field__input--narrow {
+    max-width: 120px;
+}
+
+.repeat-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 4px 3px 10px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--bg);
+    font-size: 12.5px;
+}
+
+.chip-empty {
+    color: var(--slate);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.box-row {
+    margin-bottom: 4px;
+    padding: 10px 12px 0;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    background: var(--bg);
+    margin-bottom: 12px;
+}

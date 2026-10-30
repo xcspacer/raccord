@@ -1,0 +1,291 @@
+.expenses {
+    display: grid;
+    gap: 16px;
+}
+
+.expenses__hint {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 13px;
+}
+
+/* Desktop layout: name and month, one row of actions, the auto-crop option and the hint. */
+.expenses__desktop {
+    display: grid;
+    gap: 12px;
+}
+
+.expenses__head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.expenses__head .field {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    margin-bottom: 0;
+}
+
+.expenses__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Phone layout (640 px and less): title, big tiles and the steps to follow. */
+.expenses__phone {
+    display: none;
+}
+
+.expenses__title-main {
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.expenses__title-sub {
+    margin-top: 2px;
+    color: var(--amber);
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.expenses__tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.expenses__phone.expenses__tiles {
+    display: none;
+}
+
+.expenses__tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 96px;
+    padding: 12px 8px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--bg-panel);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.expenses__tile-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.expenses__tile--primary {
+    border-color: transparent;
+    background: linear-gradient(155deg, var(--amber-light) 0%, var(--amber-deep) 100%);
+    box-shadow: 0 8px 22px rgba(242, 161, 4, 0.28);
+    color: var(--amber-ink);
+}
+
+.expenses__tile--outline {
+    border-color: rgba(242, 161, 4, 0.75);
+    background: rgba(242, 161, 4, 0.07);
+    color: var(--amber);
+}
+
+.expenses__tile--wide {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 10px;
+    min-height: 52px;
+    border-radius: 14px;
+}
+
+.expenses__tile--wide .expenses__tile-icon {
+    font-size: 20px;
+}
+
+.expenses__clear-link {
+    grid-column: 1 / -1;
+    padding: 4px;
+    border: none;
+    background: none;
+    color: var(--red);
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.expenses__ready {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--green);
+    font-size: 12.5px;
+    text-align: center;
+}
+
+.expenses__steps {
+    margin: 0;
+    padding: 12px 14px 12px 34px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(8, 24, 34, 0.55);
+    color: var(--ink-dim);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.expenses__steps li {
+    margin-bottom: 3px;
+}
+
+.expenses__steps li::marker {
+    color: var(--amber);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .expenses__desktop {
+        display: none;
+    }
+
+    .expenses__phone {
+        display: grid;
+        gap: 14px;
+    }
+
+    .expenses__phone.expenses__tiles {
+        display: grid;
+        gap: 10px;
+    }
+
+    .expenses__totals--empty {
+        display: none;
+    }
+}
+
+.expenses__lines {
+    display: grid;
+    gap: 12px;
+}
+
+.expenses__line {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-panel);
+}
+
+.expenses__thumb {
+    display: block;
+    width: 84px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.expenses__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.expenses__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1 / -1;
+}
+
+.expenses__totals {
+    display: grid;
+    gap: 2px;
+    max-width: 620px;
+    padding: 14px 16px;
+}
+
+.expenses__total-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 2px 0;
+    color: var(--ink-dim);
+    font-size: 12.5px;
+}
+
+.expenses__total-line--main {
+    margin-bottom: 6px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line-soft);
+    color: var(--ink);
+    font-size: 16px;
+}
+
+.expenses__done {
+    border-color: var(--green);
+}
+
+.expenses__copy {
+    display: flex;
+    gap: 8px;
+}
+
+/* Medium screens: the line's fields go two by two and its status/actions run on one row (legacy 720 px rule). */
+@media (max-width: 720px) {
+    .expenses__fields {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .expenses__meta {
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .expenses__line {
+        grid-template-columns: 1fr;
+    }
+
+    .expenses__thumb {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+.expenses__history {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.expenses__check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-dim);
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.expenses__check--phone {
+    align-items: flex-start;
+    gap: 10px;
+}

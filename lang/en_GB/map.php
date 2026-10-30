@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'title' => 'Work site map',
+    'mode_current' => 'Current & upcoming',
+    'mode_all' => 'All',
+    'recenter' => 'Recentre',
+    'running' => 'In progress',
+    'confirmed' => 'Confirmed, upcoming',
+    'forecast' => 'Forecast',
+    'hint' => 'wheel: zoom · double-click: recentre',
+    'locating' => '· locating :k…',
+    'whole_map' => '← Whole map',
+    'unlocated' => 'Town not recognised / missing:',
+    'off_map' => 'Off the map (far islands, overseas, abroad):',
+    'no_webgl' => '3D map unavailable: this browser does not support WebGL.',
+    'located' => 'Located work sites:',
+    'none' => 'No work site to display.',
+    'loading' => 'Loading…',
+    'unavailable' => 'Map unavailable: check the connection.',
+    'audit' => 'Audit',
+    'works_current' => [
+        'one' => ':n work site current or upcoming',
+        'few' => ':n work sites current or upcoming',
+        'many' => ':n work sites current or upcoming',
+        'other' => ':n work sites current or upcoming',
+    ],
+    'works_all' => [
+        'one' => ':n work site',
+        'few' => ':n work sites',
+        'many' => ':n work sites',
+        'other' => ':n work sites',
+    ],
+    'places' => [
+        'one' => ':n place on the map',
+        'few' => ':n places on the map',
+        'many' => ':n places on the map',
+        'other' => ':n places on the map',
+    ],
+    'sites_count' => [
+        'one' => ':n work site',
+        'few' => ':n work sites',
+        'many' => ':n work sites',
+        'other' => ':n work sites',
+    ],
+];

@@ -1,0 +1,14 @@
+/* Phones and tablets without the side menu: a select to move between the planning views. */
+.view-select {
+    margin-bottom: 14px;
+}
+
+.view-select .select-filter {
+    width: 100%;
+}
+
+@media (min-width: 1100px) {
+    .view-select {
+        display: none;
+    }
+}

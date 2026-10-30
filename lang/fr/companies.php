@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'Sociétés',
+    'hint' => 'Les sociétés auxquelles appartient le personnel. Le logo d\'une société remplace celui de la plateforme sur les documents générés par ses techniciens (note de frais, état des lieux véhicule, fiche matériel).',
+    'add_title' => 'Ajouter une société',
+    'edit_title' => 'Modifier la société',
+    'list_title' => 'Sociétés',
+    'fields' => [
+        'name' => 'Nom',
+        'logo' => 'Logo des documents',
+    ],
+    'logo_hint' => 'PNG, JPEG ou WebP, 2 Mo maximum. Sans logo, celui de la plateforme est utilisé.',
+    'platform_logo' => 'Logo de la plateforme',
+    'choose_file' => 'Choisir un fichier',
+    'no_file' => 'Aucun fichier choisi',
+    'remove_logo' => 'Retirer le logo',
+    'confirm_remove_logo' => 'Retirer le logo de cette société ? Ses documents reprendront le logo de la plateforme.',
+    'in_use' => ':name est encore attribuée à des utilisateurs : changez d\'abord leur société.',
+    'add' => 'Ajouter',
+    'save' => 'Enregistrer',
+    'cancel' => 'Annuler',
+    'edit' => 'Modifier',
+    'delete' => 'Supprimer',
+    'confirm_delete' => 'Supprimer la société « :name » ?',
+    'saved' => 'Société enregistrée.',
+    'deleted' => 'Société supprimée.',
+    'usage' => '{0} Aucun utilisateur|{1} :count utilisateur|[2,*] :count utilisateurs',
+    'empty' => 'Aucune société pour le moment.',
+];

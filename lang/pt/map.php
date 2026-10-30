@@ -1,0 +1,46 @@
+<?php
+
+return [
+    'title' => 'Mapa das obras',
+    'mode_current' => 'Em curso e futuras',
+    'mode_all' => 'Todos',
+    'recenter' => 'Centrar',
+    'running' => 'Em curso',
+    'confirmed' => 'Confirmado futuro',
+    'forecast' => 'Previsional',
+    'hint' => 'roda: zoom · duplo clique: recentrar',
+    'locating' => '· a localizar :k…',
+    'whole_map' => '← Vista geral',
+    'unlocated' => 'Localidade não reconhecida / em falta:',
+    'off_map' => 'Fora do mapa (ilhas distantes, ultramar, estrangeiro):',
+    'no_webgl' => 'Mapa 3D indisponível: este navegador não suporta WebGL.',
+    'located' => 'Obras localizadas:',
+    'none' => 'Não há obras para mostrar.',
+    'loading' => 'A carregar…',
+    'unavailable' => 'Mapa indisponível: verifique a ligação.',
+    'audit' => 'Auditoria',
+    'works_current' => [
+        'one' => ':n obra em curso ou futura',
+        'few' => ':n obras em curso ou futuras',
+        'many' => ':n obras em curso ou futuras',
+        'other' => ':n obras em curso ou futuras',
+    ],
+    'works_all' => [
+        'one' => ':n obra',
+        'few' => ':n obras',
+        'many' => ':n obras',
+        'other' => ':n obras',
+    ],
+    'places' => [
+        'one' => ':n local no mapa',
+        'few' => ':n locais no mapa',
+        'many' => ':n locais no mapa',
+        'other' => ':n locais no mapa',
+    ],
+    'sites_count' => [
+        'one' => ':n obra',
+        'few' => ':n obras',
+        'many' => ':n obras',
+        'other' => ':n obras',
+    ],
+];

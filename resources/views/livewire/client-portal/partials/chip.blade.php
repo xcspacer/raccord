@@ -1,0 +1,1 @@
+<button type="button" @class(['portal-chip', 'is-on' => $current === $value]) wire:click="$set('{{ $property }}', '{{ $value }}')">{{ $label }}@isset($count)<span class="portal-chip__count">{{ $count }}</span>@endisset</button>

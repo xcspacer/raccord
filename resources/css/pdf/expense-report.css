@@ -1,0 +1,367 @@
+@page {
+    margin: 12mm 14mm 6mm;
+}
+
+.expense-pdf {
+    margin: 0;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 9pt;
+    color: #000;
+}
+
+.expense-pdf table {
+    border-collapse: collapse;
+}
+
+.expense-pdf__head td,
+.expense-pdf__summary th {
+    padding: 0;
+}
+
+.expense-pdf__head {
+    width: 182mm;
+}
+
+.expense-pdf__head .expense-pdf__brand {
+    padding-left: 3mm;
+    vertical-align: top;
+}
+
+.expense-pdf__logo {
+    position: absolute;
+    top: 0;
+    left: 3mm;
+    max-width: 85mm;
+    height: 22mm;
+}
+
+.expense-pdf__logo--wide {
+    height: 17.8mm;
+}
+
+.expense-pdf__company {
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.expense-pdf__head-top {
+    width: 24mm;
+    height: 3mm;
+}
+
+.expense-pdf__month,
+.expense-pdf__year {
+    border: 0.35mm solid #000;
+    text-align: center;
+    font-weight: bold;
+}
+
+.expense-pdf__month {
+    height: 15.65mm;
+}
+
+.expense-pdf__year {
+    height: 4.85mm;
+}
+
+.expense-pdf__name-label,
+.expense-pdf__name {
+    height: 8.25mm;
+    border: 0.35mm solid #000;
+    font-weight: bold;
+}
+
+.expense-pdf__name-label {
+    width: 31mm;
+    text-align: center;
+    font-size: 10pt;
+}
+
+.expense-pdf__head .expense-pdf__name {
+    width: 55mm;
+    padding-left: 3mm;
+    font-size: 9.5pt;
+}
+
+.expense-pdf__edge {
+    width: 24mm;
+    border-right: 0.35mm solid #000;
+}
+
+.expense-pdf__head-gap td {
+    height: 3.4mm;
+}
+
+.expense-pdf__lines {
+    width: 182mm;
+    border: 0.7mm solid #000;
+}
+
+.expense-pdf__lines th {
+    height: 10.15mm;
+    padding: 0 0.5mm;
+    border: 0.35mm solid #000;
+    background: #55e51a;
+    text-align: center;
+    font-size: 8.5pt;
+    font-weight: bold;
+}
+
+.expense-pdf__lines td {
+    padding: 0 1.5mm;
+    border: 0.35mm solid #000;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.expense-pdf__col-date {
+    width: 29.6mm;
+}
+
+.expense-pdf__col-nature {
+    width: 56.2mm;
+}
+
+.expense-pdf__col-comment {
+    width: 68.2mm;
+}
+
+.expense-pdf__col-amount {
+    width: 22.6mm;
+}
+
+.expense-pdf__center {
+    text-align: center;
+}
+
+.expense-pdf__amount {
+    text-align: right;
+    white-space: pre;
+}
+
+.expense-pdf__lines--fit-100 td,
+.expense-pdf__lines--fit-90 td {
+    font-size: 8.5pt;
+}
+
+.expense-pdf__lines--fit-80 td {
+    font-size: 7.5pt;
+}
+
+.expense-pdf__lines--fit-70 td {
+    font-size: 6.5pt;
+}
+
+.expense-pdf__lines--fit-60 td {
+    font-size: 5.5pt;
+}
+
+.expense-pdf__lines--fit-50 td {
+    font-size: 4.5pt;
+}
+
+.expense-pdf__lines--fit-40 td {
+    font-size: 3.5pt;
+}
+
+.expense-pdf__lines--fit-100 td {
+    height: 6.55mm;
+}
+
+.expense-pdf__lines--fit-100 .expense-pdf__row--double td {
+    height: 9.25mm;
+}
+
+.expense-pdf__lines--fit-90 td {
+    height: 5.85mm;
+}
+
+.expense-pdf__lines--fit-90 .expense-pdf__row--double td {
+    height: 8.3mm;
+}
+
+.expense-pdf__lines--fit-80 td {
+    height: 5.15mm;
+}
+
+.expense-pdf__lines--fit-80 .expense-pdf__row--double td {
+    height: 7.3mm;
+}
+
+.expense-pdf__lines--fit-70 td {
+    height: 4.45mm;
+}
+
+.expense-pdf__lines--fit-70 .expense-pdf__row--double td {
+    height: 6.35mm;
+}
+
+.expense-pdf__lines--fit-60 td {
+    height: 3.8mm;
+}
+
+.expense-pdf__lines--fit-60 .expense-pdf__row--double td {
+    height: 5.4mm;
+}
+
+.expense-pdf__lines--fit-50 td {
+    height: 3.1mm;
+}
+
+.expense-pdf__lines--fit-50 .expense-pdf__row--double td {
+    height: 4.45mm;
+}
+
+.expense-pdf__lines--fit-40 td {
+    height: 2.4mm;
+}
+
+.expense-pdf__lines--fit-40 .expense-pdf__row--double td {
+    height: 3.5mm;
+}
+
+.expense-pdf__summary {
+    width: 182mm;
+    margin-top: 8mm;
+}
+
+.expense-pdf__summary th {
+    height: 5.25mm;
+    border: 0.35mm solid #000;
+    background: #55e51a;
+    text-align: center;
+    font-size: 8.5pt;
+    font-weight: bold;
+}
+
+.expense-pdf__summary .expense-pdf__recap-head {
+    font-style: italic;
+}
+
+.expense-pdf__automatic {
+    color: #dc0000;
+}
+
+.expense-pdf__total-label,
+.expense-pdf__total-amount {
+    padding: 1mm 1.5mm 0;
+    border-top: 0.35mm solid #000;
+    border-bottom: 0.35mm solid #000;
+    vertical-align: top;
+    font-size: 9pt;
+}
+
+.expense-pdf__total-label {
+    width: 58mm;
+    border-left: 0.35mm solid #000;
+}
+
+.expense-pdf__total-amount {
+    width: 25mm;
+    border-right: 0.35mm solid #000;
+}
+
+.expense-pdf__recap-label,
+.expense-pdf__recap-amount {
+    height: 3.95mm;
+    padding: 0.4mm 1.5mm;
+    border-top: 0.35mm solid #000;
+    border-bottom: 0.35mm solid #000;
+    font-size: 8pt;
+    font-style: italic;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.expense-pdf__recap-label {
+    width: 66mm;
+    border-left: 0.35mm solid #000;
+}
+
+.expense-pdf__recap-amount {
+    width: 21mm;
+    border-right: 0.35mm solid #000;
+}
+
+.expense-pdf__recap-row--double .expense-pdf__recap-label,
+.expense-pdf__recap-row--double .expense-pdf__recap-amount {
+    height: 8.25mm;
+}
+
+.expense-pdf__recap-total .expense-pdf__recap-label,
+.expense-pdf__recap-total .expense-pdf__recap-amount {
+    height: 4.25mm;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 6.5pt;
+}
+
+.expense-pdf__recap-total .expense-pdf__recap-label {
+    width: 43.5mm;
+    padding-left: 24mm;
+    text-align: center;
+}
+
+.expense-pdf__footer {
+    margin-top: 4mm;
+    font-size: 7.5pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+.expense-pdf__proofs {
+    width: 182mm;
+    table-layout: fixed;
+    page-break-before: always;
+}
+
+.expense-pdf__proofs th {
+    padding-bottom: 2mm;
+    font-size: 8pt;
+    font-weight: normal;
+    color: #6e6e6e;
+    text-align: center;
+}
+
+.expense-pdf__proofs td {
+    padding: 1mm;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.expense-pdf__proofs img {
+    max-width: 100%;
+    border: 0.15mm solid #bebebe;
+}
+
+.expense-pdf__proofs--rows-1 img {
+    max-height: 268mm;
+}
+
+.expense-pdf__proofs--rows-2 img {
+    max-height: 132mm;
+}
+
+.expense-pdf__proofs--rows-3 img {
+    max-height: 87mm;
+}
+
+.expense-pdf__proofs--rows-4 img {
+    max-height: 64mm;
+}
+
+.expense-pdf__proofs--rows-5 img {
+    max-height: 50mm;
+}
+
+.expense-pdf__proofs--rows-6 img {
+    max-height: 41mm;
+}
+
+.expense-pdf__proofs--rows-7 img {
+    max-height: 35mm;
+}
+
+.expense-pdf__proofs--rows-8 img {
+    max-height: 30mm;
+}

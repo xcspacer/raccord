@@ -1,0 +1,222 @@
+/*
+ * Standalone « Code Fibre » app (public, works offline): field-tool layout with an automatic light or dark theme,
+ * following the device setting.
+ */
+.fibre-code-app {
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --radius: 4px;
+    --fibre-code-app-bg: #F3F4F2;
+    --fibre-code-app-panel: #FFFFFF;
+    --fibre-code-app-text: #1B2024;
+    --fibre-code-app-muted: #5D666D;
+    --fibre-code-app-line: #D9DDD9;
+    --fibre-code-app-accent: #FF7900;
+    --fibre-code-app-accent-ink: #B35300;
+    --fibre-code-app-chip: #EEF0EE;
+    --fibre-code-app-highlight: #FFF2E6;
+
+    margin: 0;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    overflow-x: hidden;
+    background: var(--fibre-code-app-bg);
+    color: var(--fibre-code-app-text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.45;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fibre-code-app {
+        --fibre-code-app-bg: #14181B;
+        --fibre-code-app-panel: #1C2226;
+        --fibre-code-app-text: #E7EAEC;
+        --fibre-code-app-muted: #98A2A9;
+        --fibre-code-app-line: #2E363C;
+        --fibre-code-app-accent: #FF8A1F;
+        --fibre-code-app-accent-ink: #FFB066;
+        --fibre-code-app-chip: #262D32;
+        --fibre-code-app-highlight: #3A2A1A;
+
+        color-scheme: dark;
+    }
+}
+
+.fibre-code-app *,
+.fibre-code-app *::before,
+.fibre-code-app *::after {
+    box-sizing: border-box;
+}
+
+.fibre-code-app [x-cloak] {
+    display: none !important;
+}
+
+.fibre-code--standalone {
+    --fibre-code-accent: var(--fibre-code-app-accent);
+    --fibre-code-accent-ink: var(--fibre-code-app-accent-ink);
+    --fibre-code-text: var(--fibre-code-app-text);
+    --fibre-code-muted: var(--fibre-code-app-muted);
+    --fibre-code-field-bg: var(--fibre-code-app-bg);
+    --fibre-code-line: var(--fibre-code-app-line);
+    --fibre-code-soft-line: var(--fibre-code-app-line);
+    --fibre-code-panel: var(--fibre-code-app-panel);
+    --fibre-code-highlight: var(--fibre-code-app-highlight);
+    --fibre-code-error: #C62828;
+    --fibre-code-dot-border: rgb(0 0 0 / 35%);
+    --fibre-code-sticky: var(--fibre-code-app-panel);
+
+    display: grid;
+    gap: 20px;
+    max-width: 1100px;
+    padding: 24px 16px 48px;
+}
+
+.fibre-code--standalone > * {
+    min-width: 0;
+}
+
+.fibre-code--standalone .fibre-code__head {
+    gap: 12px;
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--fibre-code-accent);
+}
+
+.fibre-code--standalone .fibre-code__title {
+    margin: 0;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    text-wrap: balance;
+}
+
+.fibre-code__subtitle {
+    margin: 4px 0 0;
+    color: var(--fibre-code-muted);
+}
+
+.fibre-code--standalone .fibre-code__capacity {
+    font-size: 0.9rem;
+}
+
+.fibre-code--standalone .fibre-code__block {
+    margin: 0;
+    padding: 16px;
+    border-color: var(--fibre-code-line);
+    border-radius: 6px;
+}
+
+.fibre-code--standalone .fibre-code__label {
+    margin: 0 0 12px;
+    color: var(--fibre-code-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.fibre-code--standalone .fibre-code__label--custom,
+.fibre-code--standalone .fibre-code__label--picker,
+.fibre-code--standalone .fibre-code__field {
+    color: var(--fibre-code-muted);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.fibre-code--standalone .fibre-code__label--custom,
+.fibre-code--standalone .fibre-code__label--picker {
+    margin: 12px 0 6px;
+}
+
+.fibre-code--standalone .fibre-code__input {
+    font-size: 1rem;
+}
+
+.fibre-code--standalone .fibre-code__input--big {
+    font-size: 1.6rem;
+}
+
+.fibre-code--standalone .fibre-code__input--text,
+.fibre-code--standalone .fibre-code__custom-slot .fibre-code__input {
+    font-family: var(--font-body);
+}
+
+.fibre-code--standalone .fibre-code__note {
+    font-size: 0.85rem;
+}
+
+.fibre-code--standalone .fibre-code__grid {
+    gap: 20px;
+}
+
+.fibre-code--standalone .fibre-code__result {
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.fibre-code--standalone .fibre-code__line {
+    border: 0;
+    border-radius: 5px;
+    background: var(--fibre-code-app-chip);
+}
+
+.fibre-code--standalone .fibre-code__line-key {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+}
+
+.fibre-code--standalone .fibre-code__line-value {
+    font-size: 1.25rem;
+}
+
+.fibre-code--standalone .fibre-code__big-number {
+    font-size: 2.4rem;
+}
+
+.fibre-code--standalone .fibre-code__picker button {
+    font-size: 0.85rem;
+}
+
+.fibre-code--standalone .fibre-code__table-bar {
+    margin-bottom: 10px;
+}
+
+.fibre-code--standalone .fibre-code__table th {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+}
+
+.fibre-code--standalone .fibre-code__copy {
+    padding: 7px 12px;
+    border: 1px solid var(--fibre-code-accent);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--fibre-code-accent-ink);
+    font: 600 0.85rem var(--font-body);
+    cursor: pointer;
+}
+
+.fibre-code--standalone .fibre-code__copy:hover {
+    background: var(--fibre-code-highlight);
+}
+
+.fibre-code--standalone .fibre-code__custom-slot {
+    font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fibre-code-app * {
+        transition: none !important;
+    }
+}

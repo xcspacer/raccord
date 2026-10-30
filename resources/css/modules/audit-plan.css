@@ -1,0 +1,108 @@
+.plan {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--bg);
+}
+
+.plan__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.plan__title {
+    flex: 1;
+    min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.plan__search {
+    width: 160px;
+    padding: 7px 10px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-panel);
+    color: inherit;
+}
+
+.plan__message {
+    margin: 12px;
+    color: var(--ink-dim);
+}
+
+.plan__sheet {
+    flex: 1;
+    overflow: auto;
+    background: #fff;
+}
+
+.plan__table {
+    border-collapse: collapse;
+    color: #111;
+    font-size: 12px;
+}
+
+.plan__table td {
+    padding: 2px 4px;
+    border: 1px solid #e3e3e3;
+}
+
+.plan__head,
+.plan__row,
+.plan__corner {
+    position: sticky;
+    background: #eef0f2;
+    color: #555;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #cfd3d7;
+}
+
+.plan__head {
+    top: 0;
+}
+
+.plan__row {
+    left: 0;
+    min-width: 32px;
+}
+
+.plan__corner {
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.plan__table td.is-found {
+    outline: 2px solid var(--amber);
+    background: #fff3b0;
+}
+
+.plan__tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 6px 10px;
+    border-top: 1px solid var(--line);
+}
+
+.plan__tab {
+    flex: none;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.plan__tab.is-active {
+    border-color: var(--amber);
+    background: rgba(242, 161, 4, 0.18);
+}

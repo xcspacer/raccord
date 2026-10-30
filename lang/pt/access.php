@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Gerir os acessos',
+    'hint' => 'Ative ou desative, para cada função, as funcionalidades que pode ver e utilizar. O administrador tem sempre acesso a tudo. Um ponto laranja assinala uma definição diferente do comportamento de origem. O acesso é verificado pelo servidor em cada ação.',
+    'reset' => 'Repor os valores por defeito',
+    'confirm_reset' => 'Repor todos os acessos no comportamento de origem?',
+    'saved' => 'Acesso guardado',
+    'nothing_to_reset' => 'Nenhuma definição a repor.',
+    'feature' => 'Funcionalidade',
+    'admin' => 'Admin',
+    'admin_always' => 'O administrador tem sempre acesso',
+    'changed' => 'Alterado em relação à definição por defeito',
+    'not_applicable' => 'Não se aplica a esta função',
+    'roles' => [
+        'supervisor' => 'Supervisor',
+        'technician' => 'Técnico',
+        'design_office' => 'Gabinete',
+    ],
+    'descriptions' => [
+        'absences' => 'Ver e registar as ausências e férias dos técnicos.',
+        'create_work_site' => 'Criar novas obras (modificar e apagar continua reservado aos gestores).',
+        'technician_space' => 'Material, veículo, folha de horas e retorno diário do técnico.',
+        'billing' => 'Registo de ponto de clientes, despesas e faturação.',
+        'otdr_acceptance' => 'Medições reflectométricas: controlo, DCO, entregáveis.',
+        'equipment_management' => 'Inventário e atribuição do material.',
+        'audits' => 'Auditorias de PM em modo ótico e completo. Supervisor: conforme a agência (só planeamento dia a dia).',
+        'weekly_timesheet' => 'Exportação Excel do ponto semanal das auditorias.',
+        'expense_reports' => 'Registo e geração da nota de despesas mensal.',
+        'client_control' => 'Acompanhamento das auditorias pelo cliente.',
+        'media_library' => 'Fotos e documentos das obras. Supervisor: conforme a agência (só planeamento dia a dia).',
+        'fibre_code' => 'N.º de fibra ↔ tubo / fibra.',
+        'design_office_workflow' => 'Validação das auditorias caixa a caixa pelo BE (fila, decisões). Técnicos: começar e submeter as caixas.',
+    ],
+    'summary' => 'Só ficam guardados os ajustes diferentes do padrão.',
+];

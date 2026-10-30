@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'title' => 'Agencias',
+    'hint' => 'Las agencias de la empresa y cómo planifica cada una. Los nombres son libres; solo importa el modo.',
+    'add_title' => 'Añadir una agencia',
+    'edit_title' => 'Modificar la agencia',
+    'list_title' => 'Agencias',
+    'fields' => [
+        'name' => 'Nombre',
+        'mode' => 'Modo de planificación',
+        'capacity' => 'Equipos disponibles por día',
+        'default_client' => 'Cliente por defecto',
+    ],
+    'mode_hint' => [
+        'detailed' => 'Obras de varios días con un número de equipos; aviso de sobrecarga según la capacidad.',
+        'daily' => 'Obras de un día con técnico principal, acompañantes, cajas y auditorías.',
+    ],
+    'capacity_hint' => 'Por encima de este número de equipos el mismo día aparece un aviso de sobrecarga.',
+    'default_client_hint' => 'Se usa cuando no se indica el cliente (obras de un día y auditorías).',
+    'mode_locked' => 'El modo ya no se puede cambiar: esta agencia ya tiene obras.',
+    'last_agency' => 'Imposible: debe quedar al menos una agencia.',
+    'in_use' => ':name aún tiene usuarios u obras: muévalos primero.',
+    'add' => 'Añadir',
+    'save' => 'Guardar',
+    'cancel' => 'Cancelar',
+    'edit' => 'Modificar',
+    'delete' => 'Eliminar',
+    'confirm_delete' => '¿Eliminar la agencia «:name»?',
+    'saved' => 'Agencia guardada.',
+    'deleted' => 'Agencia eliminada.',
+    'move_up' => 'Subir',
+    'move_down' => 'Bajar',
+    'capacity_short' => ':count equipos/día',
+    'usage' => ':users usuario(s) · :sites obra(s)',
+];

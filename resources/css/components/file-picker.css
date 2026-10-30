@@ -1,0 +1,26 @@
+/* File input with a translated button (the browser's own button text cannot be translated). */
+.file-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.file-picker__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.file-picker__input:focus-visible + .btn {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+}
+
+.file-picker__name {
+    color: var(--ink-dim);
+    font-size: 12.5px;
+}

@@ -1,0 +1,64 @@
+/*
+ * Entry point. Order matters: foundation → layout → components → modules.
+ * Each module of the platform gets its own file under modules/ and is imported here.
+ */
+@import './foundation/tokens.css';
+@import './foundation/base.css';
+
+@import './layout/guest.css';
+@import './layout/app.css';
+
+@import './components/active-sessions.css';
+@import './components/button.css';
+@import './components/camera.css';
+@import './components/chip-delete.css';
+@import './components/data-table.css';
+@import './components/dropdown.css';
+@import './components/empty-state.css';
+@import './components/file-picker.css';
+@import './components/file-viewer.css';
+@import './components/flags.css';
+@import './components/form.css';
+@import './components/functions-menu.css';
+@import './components/icon-button.css';
+@import './components/language-switcher.css';
+@import './components/modal.css';
+@import './components/login-card.css';
+@import './components/page-hint.css';
+@import './components/privacy-notice.css';
+@import './components/role-pill.css';
+@import './components/section-label.css';
+@import './components/segmented.css';
+@import './components/status-badge.css';
+@import './components/status-pill.css';
+@import './components/toast.css';
+@import './components/toolbar.css';
+@import './components/view-select.css';
+@import './components/toggle-switch.css';
+
+@import './modules/absences.css';
+@import './modules/audit.css';
+@import './modules/audit-field.css';
+@import './modules/audit-plan.css';
+@import './modules/audit-recheck.css';
+@import './modules/audit-drawer.css';
+@import './modules/be-workflow.css';
+@import './modules/billing.css';
+@import './modules/client-control.css';
+@import './modules/access.css';
+@import './modules/day-punch.css';
+@import './modules/expenses.css';
+@import './modules/fibre-code.css';
+@import './modules/holidays.css';
+@import './modules/home.css';
+@import './modules/inventory.css';
+@import './modules/logs.css';
+@import './modules/map.css';
+@import './modules/media-library.css';
+@import './modules/otdr.css';
+@import './modules/planning.css';
+@import './modules/space.css';
+@import './modules/tasks.css';
+@import './modules/platform-settings.css';
+@import './modules/portal.css';
+@import './modules/users.css';

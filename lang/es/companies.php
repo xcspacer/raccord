@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'Sociedades',
+    'hint' => 'Las sociedades a las que pertenece el personal. El logotipo de una sociedad sustituye al de la plataforma en los documentos que generan sus técnicos (nota de gastos, estado del vehículo, ficha de material).',
+    'add_title' => 'Añadir una sociedad',
+    'edit_title' => 'Editar la sociedad',
+    'list_title' => 'Sociedades',
+    'fields' => [
+        'name' => 'Nombre',
+        'logo' => 'Logotipo de los documentos',
+    ],
+    'logo_hint' => 'PNG, JPEG o WebP, 2 MB como máximo. Sin logotipo se usa el de la plataforma.',
+    'platform_logo' => 'Logotipo de la plataforma',
+    'choose_file' => 'Elegir un archivo',
+    'no_file' => 'Ningún archivo elegido',
+    'remove_logo' => 'Quitar el logotipo',
+    'confirm_remove_logo' => '¿Quitar el logotipo de esta sociedad? Sus documentos usarán el logotipo de la plataforma.',
+    'in_use' => ':name aún está asignada a usuarios: cambie primero su sociedad.',
+    'add' => 'Añadir',
+    'save' => 'Guardar',
+    'cancel' => 'Cancelar',
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+    'confirm_delete' => '¿Eliminar la sociedad « :name »?',
+    'saved' => 'Sociedad guardada.',
+    'deleted' => 'Sociedad eliminada.',
+    'usage' => '{0} Ningún usuario|{1} :count usuario|[2,*] :count usuarios',
+    'empty' => 'Todavía no hay sociedades.',
+];

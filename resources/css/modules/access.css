@@ -1,0 +1,95 @@
+/* "Gérer les accès": one card per group of features, one column per role. */
+.access-page__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px 24px;
+    grid-column: 1 / -1;
+}
+
+.access-page__intro .page-hint {
+    flex: 1;
+    margin: 0;
+}
+
+.access-page__footer {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+
+.access-card {
+    padding-bottom: 8px;
+}
+
+.access-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) repeat(4, 70px);
+    align-items: center;
+    gap: 4px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.access-row:last-child {
+    border-bottom: 0;
+}
+
+.access-row > span {
+    text-align: center;
+}
+
+.access-row > span:first-child {
+    text-align: left;
+}
+
+.access-row--head {
+    padding-top: 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-dim);
+    font: 600 9px var(--font-mono);
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.access-row--head > span {
+    overflow-wrap: anywhere;
+}
+
+.access-row__feature {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.access-row__feature strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.access-row__feature small {
+    color: var(--ink-dim);
+    font-size: 11.5px;
+    line-height: 1.35;
+}
+
+.access-row__na {
+    color: var(--ink-dim);
+    opacity: 0.5;
+}
+
+.access-row__locked {
+    color: var(--green-ok);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .access-row {
+        grid-template-columns: minmax(0, 1fr) repeat(4, 52px);
+    }
+
+    .access-row--head {
+        font-size: 9px;
+    }
+}

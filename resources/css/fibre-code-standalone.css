@@ -1,0 +1,6 @@
+/*
+ * Entry point of the standalone « Code Fibre » app (public page that works offline): only what it needs, not the
+ * whole platform stylesheet.
+ */
+@import './modules/fibre-code.css';
+@import './modules/fibre-code-standalone.css';

@@ -1,0 +1,412 @@
+/*
+ * « Code Fibre »: cable settings, the two converters, the 12-colour legend and the cable table. The standalone app
+ * reuses these rules with its own theme (fibre-code-standalone.css).
+ */
+.fibre-code {
+    --fibre-code-accent: var(--amber);
+    --fibre-code-accent-ink: var(--amber);
+    --fibre-code-text: var(--ink);
+    --fibre-code-muted: var(--ink-dim);
+    --fibre-code-field-bg: var(--bg);
+    --fibre-code-line: var(--line);
+    --fibre-code-soft-line: var(--line-soft);
+    --fibre-code-panel: rgb(8 24 34 / 45%);
+    --fibre-code-highlight: rgb(242 161 4 / 16%);
+    --fibre-code-error: #FF9A78;
+    --fibre-code-dot-border: rgb(255 255 255 / 40%);
+    --fibre-code-sticky: var(--bg-panel);
+
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 4px 0 90px;
+}
+
+.fibre-code__head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px 16px;
+    margin-bottom: 4px;
+}
+
+.fibre-code__title {
+    margin: 4px 0 6px;
+    color: var(--fibre-code-text);
+    font-family: var(--font-display);
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fibre-code__title span {
+    color: var(--fibre-code-accent-ink);
+}
+
+.fibre-code__capacity {
+    color: var(--fibre-code-muted);
+    font-family: var(--font-mono);
+    font-size: 13px;
+}
+
+.fibre-code__capacity b {
+    color: var(--fibre-code-text);
+}
+
+.fibre-code__block {
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid var(--fibre-code-soft-line);
+    border-radius: 14px;
+    background: var(--fibre-code-panel);
+}
+
+.fibre-code__label {
+    margin: 0 0 8px;
+    color: var(--fibre-code-muted);
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.fibre-code__label--custom {
+    margin-top: 12px;
+}
+
+.fibre-code__label--picker {
+    margin: 12px 0 6px;
+}
+
+.fibre-code__settings {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.fibre-code__field {
+    display: grid;
+    gap: 4px;
+    color: var(--fibre-code-muted);
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.fibre-code__field--mark {
+    max-width: 260px;
+    margin-top: 10px;
+}
+
+.fibre-code__input {
+    min-width: 0;
+    max-width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--fibre-code-line);
+    border-radius: var(--radius);
+    background: var(--fibre-code-field-bg);
+    color: var(--fibre-code-text);
+    font: 500 15px var(--font-mono);
+}
+
+.fibre-code__input--short {
+    width: 7ch;
+}
+
+.fibre-code__input--big {
+    width: 8ch;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.fibre-code__input--text {
+    font-family: var(--font-body);
+}
+
+.fibre-code__input:focus-visible,
+.fibre-code button:focus-visible {
+    outline: 2px solid var(--fibre-code-accent);
+    outline-offset: 1px;
+}
+
+.fibre-code__note {
+    max-width: 75ch;
+    margin: 10px 0 0;
+    color: var(--fibre-code-muted);
+    font-size: 12.5px;
+}
+
+.fibre-code__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 12px;
+}
+
+.fibre-code__grid > * {
+    min-width: 0;
+}
+
+.fibre-code__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.fibre-code__result {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.fibre-code__error {
+    color: var(--fibre-code-error);
+    font-weight: 600;
+}
+
+.fibre-code__line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--fibre-code-soft-line);
+    border-radius: 10px;
+    background: var(--fibre-code-panel);
+}
+
+.fibre-code__line-key {
+    flex: none;
+    width: 4.5rem;
+    color: var(--fibre-code-muted);
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.fibre-code__line-value {
+    flex: none;
+    width: 3ch;
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.fibre-code__line-colour {
+    min-width: 0;
+    font-weight: 600;
+}
+
+.fibre-code__big-number {
+    color: var(--fibre-code-accent-ink);
+    font-family: var(--font-mono);
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Colour swatch; "marked" positions (beyond 12) get a dashed bar across, light on dark colours. */
+.fibre-code__dot {
+    position: relative;
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid var(--fibre-code-dot-border);
+    border-radius: 50%;
+}
+
+.fibre-code__dot--small {
+    width: 16px;
+    height: 16px;
+    border-width: 1px;
+}
+
+.fibre-code__dot--marked::after {
+    content: "";
+    position: absolute;
+    inset: 44% -4px;
+    background: repeating-linear-gradient(90deg, #111111 0 4px, transparent 4px 7px);
+}
+
+.fibre-code__dot--marked.fibre-code__dot--dark::after {
+    background: repeating-linear-gradient(90deg, #EEEEEE 0 4px, transparent 4px 7px);
+}
+
+/* Same values as PALETTE in resources/js/fibre-code/fibre-code.js. */
+.fibre-code__dot--red {
+    background: #D62828;
+}
+
+.fibre-code__dot--blue {
+    background: #1F5FD1;
+}
+
+.fibre-code__dot--green {
+    background: #1E9B3B;
+}
+
+.fibre-code__dot--yellow {
+    background: #F5D400;
+}
+
+.fibre-code__dot--violet {
+    background: #7B3FB9;
+}
+
+.fibre-code__dot--white {
+    background: #FFFFFF;
+}
+
+.fibre-code__dot--orange {
+    background: #F47C10;
+}
+
+.fibre-code__dot--grey {
+    background: #8C9196;
+}
+
+.fibre-code__dot--brown {
+    background: #7A4A22;
+}
+
+.fibre-code__dot--black {
+    background: #141414;
+}
+
+.fibre-code__dot--turquoise {
+    background: #20C1C4;
+}
+
+.fibre-code__dot--pink {
+    background: #F59AC6;
+}
+
+.fibre-code__picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fibre-code__picker button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border: 1px solid var(--fibre-code-line);
+    border-radius: var(--radius);
+    background: var(--fibre-code-field-bg);
+    color: var(--fibre-code-text);
+    font: 500 13px var(--font-body);
+    cursor: pointer;
+}
+
+.fibre-code__picker button[aria-pressed="true"] {
+    border-color: var(--fibre-code-accent);
+    background: var(--fibre-code-highlight);
+    font-weight: 700;
+}
+
+.fibre-code__legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 6px 14px;
+}
+
+.fibre-code__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.fibre-code__position {
+    width: 2ch;
+    color: var(--fibre-code-muted);
+    font-family: var(--font-mono);
+    text-align: right;
+}
+
+.fibre-code__table-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.fibre-code__table-bar .fibre-code__label {
+    margin: 0;
+}
+
+.fibre-code__table-wrap {
+    max-height: 520px;
+    overflow: auto;
+}
+
+.fibre-code__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+
+.fibre-code__table th,
+.fibre-code__table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--fibre-code-soft-line);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.fibre-code__table th {
+    position: sticky;
+    top: 0;
+    background: var(--fibre-code-sticky);
+    color: var(--fibre-code-muted);
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.fibre-code__table .fibre-code__number {
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.fibre-code__table tr.is-tube-start td {
+    border-top: 2px solid var(--fibre-code-line);
+}
+
+.fibre-code__table tr.is-highlighted td {
+    background: var(--fibre-code-highlight);
+}
+
+.fibre-code__cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fibre-code__custom {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.fibre-code__custom-slot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.fibre-code__custom-slot .fibre-code__input {
+    flex: 1;
+    padding: 5px 6px;
+    font-family: var(--font-body);
+}

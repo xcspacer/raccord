@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'Companies',
+    'hint' => 'The companies the staff belong to. A company\'s logo replaces the platform logo on the documents its technicians generate (expense report, vehicle and equipment sheets).',
+    'add_title' => 'Add a company',
+    'edit_title' => 'Edit the company',
+    'list_title' => 'Companies',
+    'fields' => [
+        'name' => 'Name',
+        'logo' => 'Logo for documents',
+    ],
+    'logo_hint' => 'PNG, JPEG or WebP, 2 MB max. Without a logo, the platform logo is used.',
+    'platform_logo' => 'Platform logo',
+    'choose_file' => 'Choose a file',
+    'no_file' => 'No file chosen',
+    'remove_logo' => 'Remove the logo',
+    'confirm_remove_logo' => 'Remove this company\'s logo? Its documents will use the platform logo.',
+    'in_use' => ':name is still assigned to users: change their company first.',
+    'add' => 'Add',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'confirm_delete' => 'Delete the company « :name »?',
+    'saved' => 'Company saved.',
+    'deleted' => 'Company deleted.',
+    'usage' => '{0} No user|{1} :count user|[2,*] :count users',
+    'empty' => 'No company yet.',
+];

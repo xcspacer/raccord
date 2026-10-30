@@ -1,0 +1,184 @@
+/* « Mon espace » of a technician. */
+.space__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.space__panel {
+    display: grid;
+    gap: 16px;
+}
+
+@media (min-width: 1000px) {
+    .space__panel--return {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: start;
+    }
+}
+
+.email-preview {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.inspection {
+    display: grid;
+    gap: 16px;
+}
+
+.inspection__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.inspection__card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-panel);
+}
+
+.inspection__title {
+    margin: 0;
+    color: var(--ink-dim);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.inspection__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.inspection__empty {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+    color: var(--slate);
+    font-size: 12px;
+    font-style: italic;
+}
+
+.inspection__old {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background: rgba(242, 161, 4, 0.2);
+    color: var(--amber);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
+.inspection__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.inspection__damage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid var(--line-soft);
+}
+
+.inspection__damage-image {
+    width: 64px;
+    height: 48px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.inspection__damage-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.inspection__damage-text small {
+    color: var(--ink-dim);
+}
+
+.form-actions--left {
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.equipment {
+    display: grid;
+    gap: 16px;
+}
+
+.equipment__hint {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 13px;
+}
+
+.equipment__assigned {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.equipment__assigned-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-panel);
+}
+
+.equipment__assigned-text {
+    color: var(--ink-dim);
+}
+
+.equipment__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.equipment__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.equipment__status {
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 12.5px;
+}
+
+.equipment__status--ok {
+    color: var(--green);
+}
+
+.equipment__status--check,
+.equipment__status--manual {
+    color: var(--amber);
+}

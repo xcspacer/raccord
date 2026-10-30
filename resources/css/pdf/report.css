@@ -1,0 +1,213 @@
+@page {
+    margin: 14mm 14mm 16mm;
+}
+
+body {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 10pt;
+    color: #1f2937;
+}
+
+.pdf-header {
+    width: 100%;
+    border-bottom: 1px solid #1f2937;
+    padding-bottom: 4mm;
+    margin-bottom: 5mm;
+}
+
+.pdf-header__logo {
+    height: 14mm;
+}
+
+/* Technician documents: logos wider than 2:1 are printed 13 mm high, the others 18 mm (legacy rule). */
+.pdf-header__logo--wide {
+    height: 13mm;
+}
+
+.pdf-header__logo--tall {
+    height: 18mm;
+}
+
+.pdf-header__company {
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.pdf-header__title {
+    text-align: right;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.pdf-header__date {
+    text-align: right;
+    font-size: 9pt;
+    color: #6b7280;
+}
+
+.pdf-line {
+    margin: 0 0 1.5mm;
+}
+
+.pdf-section {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 6mm 0 2mm;
+    page-break-after: avoid;
+}
+
+.pdf-grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pdf-grid td {
+    width: 50%;
+    padding: 0 2mm 4mm;
+    vertical-align: top;
+    text-align: center;
+}
+
+.pdf-photo {
+    height: 52mm;
+    border: 1px solid #d1d5db;
+    text-align: center;
+}
+
+.pdf-photo img {
+    max-width: 100%;
+    max-height: 52mm;
+}
+
+.pdf-photo__empty {
+    padding-top: 22mm;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.pdf-caption {
+    margin-top: 1mm;
+    font-size: 9pt;
+}
+
+.pdf-damage {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+}
+
+.pdf-damage td {
+    vertical-align: top;
+    padding-right: 3mm;
+}
+
+.pdf-damage__image {
+    width: 40mm;
+}
+
+.pdf-damage__image img {
+    max-width: 38mm;
+    max-height: 38mm;
+}
+
+.pdf-damage__date {
+    font-size: 8pt;
+    color: #6b7280;
+}
+
+.pdf-muted {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.pdf-signature {
+    margin-top: 14mm;
+    width: 70mm;
+    border-top: 1px solid #1f2937;
+    padding-top: 1.5mm;
+    font-size: 9pt;
+    page-break-inside: avoid;
+}
+
+.pdf-footer {
+    margin-top: 8mm;
+    font-size: 8pt;
+    color: #6b7280;
+    text-align: center;
+}
+
+.pdf-expense__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 3mm;
+}
+
+.pdf-expense__table th {
+    background: #55e51a;
+    border: 0.7px solid #1f2937;
+    padding: 1.5mm;
+    font-size: 9pt;
+}
+
+.pdf-expense__table {
+    table-layout: fixed;
+}
+
+.pdf-expense__table td {
+    height: 5.2mm;
+    border: 0.7px solid #1f2937;
+    padding: 0.6mm 1.5mm;
+    font-size: 8.5pt;
+}
+
+.pdf-expense__col-date {
+    width: 18%;
+}
+
+.pdf-expense__col-nature {
+    width: 30%;
+}
+
+.pdf-expense__amount {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.pdf-attestation__col-quantity {
+    width: 9%;
+}
+
+.pdf-attestation__legal {
+    margin: 6mm 0 4mm;
+    font-size: 9pt;
+}
+
+.pdf-attestation__signatures {
+    width: 100%;
+    page-break-inside: avoid;
+}
+
+.pdf-attestation__signatures td {
+    width: 50%;
+    padding-right: 4mm;
+    vertical-align: top;
+}
+
+.pdf-attestation__box {
+    height: 32mm;
+    border: 1px solid #1f2937;
+    text-align: center;
+}
+
+.pdf-attestation__box img {
+    max-width: 80mm;
+    max-height: 30mm;
+}
+
+.pdf-attestation__unsigned {
+    margin-top: 6mm;
+    color: #dc2626;
+    font-weight: bold;
+    text-align: center;
+}

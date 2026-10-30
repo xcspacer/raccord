@@ -1,0 +1,30 @@
+.status-badge {
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.status-badge--leave {
+    background: var(--green);
+    color: var(--ink-on-green);
+}
+
+.status-badge--sick {
+    background: var(--violet);
+    color: var(--violet-ink);
+}
+
+.status-badge--absent {
+    background: var(--red);
+    color: #fff;
+}
+
+.status-badge--hidden {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink-dim);
+}

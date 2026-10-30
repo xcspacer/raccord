@@ -1,0 +1,1 @@
+<svg @class(['portal-bar', 'is-full' => $percent >= 100]) viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="portal-bar__value" x="0" y="0" width="{{ $percent }}" height="6"/></svg>

@@ -1,0 +1,81 @@
+/* Data table; every row becomes a card on phones, each value preceded by its label. */
+.data-table {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-collapse: collapse;
+    border-radius: 8px;
+    background: var(--bg-panel);
+}
+
+.data-table th {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-panel-2);
+    color: var(--ink-dim);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.data-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 13.5px;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.data-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.data-table__warn {
+    margin-left: 6px;
+    color: var(--red);
+    cursor: help;
+}
+
+.data-table__actions {
+    display: flex;
+    gap: 8px;
+}
+
+@media (max-width: 640px) {
+    .data-table thead {
+        display: none;
+    }
+
+    .data-table,
+    .data-table tbody,
+    .data-table tr,
+    .data-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .data-table tbody tr {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .data-table td {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 4px 14px;
+        border: 0;
+    }
+
+    .data-table td::before {
+        content: attr(data-label);
+        color: var(--ink-dim);
+        font-family: var(--font-mono);
+        font-size: 11px;
+    }
+}

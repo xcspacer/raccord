@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'title' => 'Sociedades',
+    'hint' => 'As sociedades a que o pessoal pertence. O logótipo de uma sociedade substitui o da plataforma nos documentos gerados pelos seus técnicos (nota de despesas, estado do veículo, ficha de material).',
+    'add_title' => 'Adicionar uma sociedade',
+    'edit_title' => 'Editar a sociedade',
+    'list_title' => 'Sociedades',
+    'fields' => [
+        'name' => 'Nome',
+        'logo' => 'Logótipo dos documentos',
+    ],
+    'logo_hint' => 'PNG, JPEG ou WebP, 2 MB no máximo. Sem logótipo, é usado o da plataforma.',
+    'platform_logo' => 'Logótipo da plataforma',
+    'choose_file' => 'Escolher um ficheiro',
+    'no_file' => 'Nenhum ficheiro escolhido',
+    'remove_logo' => 'Retirar o logótipo',
+    'confirm_remove_logo' => 'Retirar o logótipo desta sociedade? Os seus documentos passam a usar o logótipo da plataforma.',
+    'in_use' => ':name ainda está atribuída a utilizadores: mude primeiro a sociedade deles.',
+    'add' => 'Adicionar',
+    'save' => 'Guardar',
+    'cancel' => 'Cancelar',
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+    'confirm_delete' => 'Eliminar a sociedade « :name »?',
+    'saved' => 'Sociedade guardada.',
+    'deleted' => 'Sociedade eliminada.',
+    'usage' => '{0} Nenhum utilizador|{1} :count utilizador|[2,*] :count utilizadores',
+    'empty' => 'Ainda não há sociedades.',
+];

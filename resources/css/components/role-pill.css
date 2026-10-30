@@ -1,0 +1,35 @@
+.role-pill {
+    padding: 2px 8px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--bg-panel);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.role-pill--administrator {
+    border-color: rgba(228, 87, 46, 0.5);
+    background: rgba(228, 87, 46, 0.18);
+    color: var(--red);
+}
+
+.role-pill--supervisor {
+    border-color: rgba(76, 143, 191, 0.5);
+    background: rgba(76, 143, 191, 0.18);
+    color: var(--blue);
+}
+
+.role-pill--design_office {
+    border-color: rgba(242, 161, 4, 0.55);
+    background: rgba(242, 161, 4, 0.18);
+    color: var(--amber);
+}
+
+.role-pill--technician {
+    border-color: var(--line);
+    background: rgba(143, 170, 184, 0.18);
+    color: var(--ink-dim);
+}

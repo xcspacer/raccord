@@ -1,0 +1,52 @@
+/* Header dropdown (settings menu), opened with <details>. */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown > summary {
+    list-style: none;
+}
+
+.dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.dropdown > summary:hover {
+    border-color: rgba(242, 161, 4, 0.5);
+    color: var(--amber);
+}
+
+.dropdown__menu {
+    position: absolute;
+    top: 46px;
+    right: 0;
+    z-index: 60;
+    min-width: 200px;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-panel);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.dropdown__item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown__item:hover {
+    background: var(--bg-panel-2);
+}
