@@ -60,7 +60,7 @@ return new class extends Migration
             $table->foreignId('client_account_id')->nullable()->constrained()->nullOnDelete();
             $table->string('author_name', 120);
             $table->text('body');
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
         });
     }
 

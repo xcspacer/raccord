@@ -44,7 +44,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('lines_count');
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
             $table->string('file_name')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['user_id', 'created_at']);
         });

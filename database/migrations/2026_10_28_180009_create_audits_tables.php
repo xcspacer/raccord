@@ -191,7 +191,7 @@ return new class extends Migration
             $table->string('subfolder', 16)->default('');
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
             $table->string('file_name', 160)->nullable();
-            $table->timestamp('captured_at');
+            $table->dateTime('captured_at');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
@@ -199,7 +199,7 @@ return new class extends Migration
             $table->boolean('is_imported')->default(false);
             $table->boolean('is_geo_missing')->default(false);
             $table->string('geo_missing_reason', 200)->nullable();
-            $table->timestamp('received_at');
+            $table->dateTime('received_at');
 
             $table->index(['audit_box_id', 'folder', 'subfolder']);
             $table->index(['audit_control_point_id', 'folder', 'subfolder']);
@@ -212,7 +212,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string('user_name', 120)->nullable();
             $table->unsignedSmallInteger('photos_count');
-            $table->timestamp('validated_at');
+            $table->dateTime('validated_at');
 
             $table->unique(['audit_box_id', 'folder']);
         });
@@ -227,8 +227,8 @@ return new class extends Migration
             $table->decimal('longitude', 10, 7)->nullable();
             $table->unsignedSmallInteger('accuracy')->nullable();
             $table->boolean('is_automatic')->default(false);
-            $table->timestamp('since');
-            $table->timestamp('seen_at');
+            $table->dateTime('since');
+            $table->dateTime('seen_at');
 
             $table->unique(['audit_id', 'user_id']);
         });
@@ -244,7 +244,7 @@ return new class extends Migration
             $table->foreignId('acknowledged_by')->nullable()->constrained('users')->nullOnDelete();
             $table->string('acknowledged_by_name', 120)->nullable();
             $table->timestamp('acknowledged_at')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['audit_box_id', 'created_at']);
         });
@@ -259,8 +259,8 @@ return new class extends Migration
             $table->boolean('queued')->default(false);
             $table->timestamp('client_created_at')->nullable();
             $table->integer('clock_gap_seconds')->nullable();
-            $table->timestamp('performed_at');
-            $table->timestamp('received_at');
+            $table->dateTime('performed_at');
+            $table->dateTime('received_at');
 
             $table->unique(['user_id', 'operation_id']);
             $table->index('received_at');
@@ -275,7 +275,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->string('user_name', 120)->nullable();
             $table->string('device_id', 40)->nullable();
-            $table->timestamp('changed_at');
+            $table->dateTime('changed_at');
 
             $table->unique(['audit_id', 'field']);
         });

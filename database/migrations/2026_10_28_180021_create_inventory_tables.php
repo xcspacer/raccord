@@ -53,7 +53,7 @@ return new class extends Migration
             $table->string('kind', 8)->default('photo');
             $table->foreignId('added_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('removed_at')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['inventory_item_id', 'removed_at']);
         });
@@ -71,7 +71,7 @@ return new class extends Migration
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->string('created_by_name', 120)->nullable();
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['user_id', 'created_at']);
         });
@@ -102,7 +102,7 @@ return new class extends Migration
             $table->string('kind', 16)->nullable();
             $table->string('comment', 600)->nullable();
             $table->json('details')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index('created_at');
             $table->index(['from_user_id', 'to_user_id', 'holder_id']);

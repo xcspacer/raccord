@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('region', 160)->nullable();
             $table->string('country', 160)->nullable();
             $table->string('address', 400)->nullable();
-            $table->timestamp('checked_at')->index();
+            $table->dateTime('checked_at')->index();
 
             $table->unique(['position_key', 'locale']);
         });

@@ -13,14 +13,14 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->date('date');
 
-            $table->timestamp('start_at');
+            $table->dateTime('start_at');
             $table->decimal('start_latitude', 9, 6)->nullable();
             $table->decimal('start_longitude', 9, 6)->nullable();
             $table->unsignedInteger('start_accuracy')->nullable();
             $table->boolean('start_geo_missing')->default(false);
             $table->string('start_geo_reason', 16)->nullable();
             $table->boolean('start_offline')->default(false);
-            $table->timestamp('start_received_at');
+            $table->dateTime('start_received_at');
 
             $table->timestamp('end_at')->nullable();
             $table->decimal('end_latitude', 9, 6)->nullable();
@@ -46,7 +46,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->boolean('duplicate')->default(false);
             $table->json('payload')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['user_id', 'created_at']);
         });

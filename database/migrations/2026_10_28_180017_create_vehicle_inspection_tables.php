@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('slot', 16);
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
             $table->char('month', 7);
-            $table->timestamp('taken_at');
+            $table->dateTime('taken_at');
             $table->decimal('latitude', 9, 6)->nullable();
             $table->decimal('longitude', 9, 6)->nullable();
             $table->timestamp('archived_at')->nullable();

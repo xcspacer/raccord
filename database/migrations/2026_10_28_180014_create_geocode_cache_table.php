@@ -15,7 +15,7 @@ return new class extends Migration
             $table->decimal('latitude', 9, 6)->nullable();
             $table->decimal('longitude', 9, 6)->nullable();
             $table->string('place_name', 160)->nullable();
-            $table->timestamp('checked_at')->index();
+            $table->dateTime('checked_at')->index();
         });
     }
 

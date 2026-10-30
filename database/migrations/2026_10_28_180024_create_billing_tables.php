@@ -84,7 +84,7 @@ return new class extends Migration
             $table->decimal('old_amount', 10, 2)->nullable();
             $table->decimal('new_amount', 10, 2);
             $table->foreignId('changed_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
         });
 
         Schema::create('billing_entries', function (Blueprint $table) {
@@ -134,7 +134,7 @@ return new class extends Migration
             $table->string('category', 8)->nullable();
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
             $table->foreignId('uploaded_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
         });
 
         Schema::create('billing_expenses', function (Blueprint $table) {
@@ -161,7 +161,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('billing_expense_id')->constrained()->cascadeOnDelete();
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
         });
     }
 

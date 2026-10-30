@@ -30,7 +30,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('audit_box_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->restrictOnDelete();
-            $table->timestamp('joined_at');
+            $table->dateTime('joined_at');
 
             $table->unique(['audit_box_id', 'user_id']);
         });
@@ -69,7 +69,7 @@ return new class extends Migration
             $table->foreignId('submitted_by')->constrained('users')->restrictOnDelete();
             $table->string('client_operation_id', 64);
             $table->json('snapshot');
-            $table->timestamp('received_at');
+            $table->dateTime('received_at');
 
             $table->unique(['submitted_by', 'client_operation_id']);
             $table->index(['audit_box_id', 'kind']);
@@ -81,8 +81,8 @@ return new class extends Migration
             $table->foreignId('audit_box_id')->constrained()->cascadeOnDelete();
             $table->string('state', 16)->default('queued');
             $table->foreignId('assigned_to')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('queued_at');
-            $table->timestamp('deadline_at');
+            $table->dateTime('queued_at');
+            $table->dateTime('deadline_at');
             $table->timestamp('assigned_at')->nullable();
             $table->timestamp('opened_at')->nullable();
             $table->timestamp('alerted_at')->nullable();
@@ -102,7 +102,7 @@ return new class extends Migration
             $table->foreignId('decided_by')->constrained('users')->restrictOnDelete();
             $table->text('reason')->nullable();
             $table->json('targets')->nullable();
-            $table->timestamp('decided_at');
+            $table->dateTime('decided_at');
         });
 
         Schema::create('audit_missing_proofs', function (Blueprint $table) {
@@ -115,7 +115,7 @@ return new class extends Migration
             $table->boolean('is_accepted')->nullable();
             $table->foreignId('decided_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('decided_at')->nullable();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->unique(['audit_submission_id', 'folder']);
         });
@@ -161,7 +161,7 @@ return new class extends Migration
             $table->boolean('is_suggested')->default(false);
             $table->text('justification')->nullable();
             $table->foreignId('added_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('added_at');
+            $table->dateTime('added_at');
             $table->foreignId('confirmed_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('confirmed_at')->nullable();
             $table->foreignId('excluded_by')->nullable()->constrained('users')->nullOnDelete();
@@ -180,7 +180,7 @@ return new class extends Migration
             $table->foreignId('audit_photo_id')->constrained()->cascadeOnDelete();
             $table->string('role', 8);
             $table->foreignId('linked_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('linked_at');
+            $table->dateTime('linked_at');
 
             $table->unique(['audit_occurrence_id', 'audit_photo_id', 'role'], 'audit_occurrence_photos_unique');
         });
@@ -270,7 +270,7 @@ return new class extends Migration
             $table->string('kind', 24);
             $table->text('reason');
             $table->foreignId('accepted_by')->constrained('users')->restrictOnDelete();
-            $table->timestamp('accepted_at');
+            $table->dateTime('accepted_at');
             $table->foreignId('closed_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('closed_at')->nullable();
             $table->text('closing_reason')->nullable();
@@ -290,7 +290,7 @@ return new class extends Migration
             $table->string('current_key', 40)->nullable()->unique();
             $table->json('summary')->nullable();
             $table->foreignId('published_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->timestamp('published_at');
+            $table->dateTime('published_at');
             $table->timestamps();
 
             $table->unique(['audit_id', 'kind', 'version_number']);
@@ -372,7 +372,7 @@ return new class extends Migration
             $table->foreignId('reopened_by')->constrained('users')->restrictOnDelete();
             $table->text('reason');
             $table->json('box_ids');
-            $table->timestamp('reopened_at');
+            $table->dateTime('reopened_at');
         });
 
         Schema::create('audit_client_claims', function (Blueprint $table) {
@@ -413,7 +413,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->restrictOnDelete();
             $table->foreignId('audit_box_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->timestamp('started_at');
+            $table->dateTime('started_at');
             $table->timestamp('ended_at')->nullable();
             $table->string('reason', 500)->nullable();
             $table->timestamps();
@@ -428,7 +428,7 @@ return new class extends Migration
             $table->unsignedInteger('adjusted_seconds');
             $table->text('justification');
             $table->foreignId('adjusted_by')->constrained('users')->restrictOnDelete();
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
         });
     }
 

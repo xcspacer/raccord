@@ -29,7 +29,7 @@ return new class extends Migration
             $table->foreignId('stored_file_id')->constrained()->restrictOnDelete();
             $table->foreignId('uploaded_by')->nullable()->constrained('users')->nullOnDelete();
             $table->string('uploader_name', 120)->nullable();
-            $table->timestamp('uploaded_at');
+            $table->dateTime('uploaded_at');
             $table->timestamps();
 
             $table->unique(['media_folder_id', 'phase', 'file_name']);

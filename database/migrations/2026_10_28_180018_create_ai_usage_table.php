@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('feature', 24);
-            $table->timestamp('created_at');
+            $table->dateTime('created_at');
 
             $table->index(['feature', 'created_at']);
             $table->index(['user_id', 'feature', 'created_at']);
