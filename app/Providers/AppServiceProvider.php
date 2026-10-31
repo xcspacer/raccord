@@ -8,6 +8,7 @@ use App\Http\Middleware\EnsureFeatureIsAllowed;
 use App\Http\Middleware\EnsureModuleIsEnabled;
 use App\Logs\ActivityBatch;
 use App\Logs\SecurityLog;
+use App\Models\Client;
 use App\Models\User;
 use App\Support\EffectiveAgency;
 use App\Support\FeatureAccess;
@@ -63,6 +64,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('open-feature', fn (User $user, Feature $feature): bool => app(FeatureAccess::class)->opens($user, $feature));
         Gate::define('switch-agency', fn (User $user): bool => app(EffectiveAgency::class)->canSwitch($user));
         Gate::define('export-planning-timesheet', fn (User $user): bool => $user->isManager() && app(FeatureAccess::class)->allows($user, Feature::WeeklyTimesheet));
+
+        // Bound here, not in routes/portal.php: route files are not loaded when the routes are cached (production).
+        Route::bind('portalClient', fn (string $slug) => Client::query()->where('code', $slug)->where('is_active', true)->firstOrFail());
 
         Activity::creating(function (Activity $activity): void {
             $activity->properties = collect($activity->properties)->put('batch', app(ActivityBatch::class)->id());

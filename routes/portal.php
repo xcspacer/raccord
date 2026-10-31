@@ -5,14 +5,12 @@ use App\Http\Controllers\ClientPortal\PortalLogoController;
 use App\Http\Controllers\ClientPortal\PortalPasswordController;
 use App\Http\Controllers\ClientPortal\PortalSessionController;
 use App\Livewire\ClientPortal\PortalPage;
-use App\Models\Client;
 use Illuminate\Support\Facades\Route;
 
 /*
- * Client portal: pages for the client companies' own accounts (guard "client"), one address per company.
+ * Client portal: pages for the client companies' own accounts (guard "client"), one address per company
+ * ({portalClient} is bound in AppServiceProvider).
  */
-Route::bind('portalClient', fn (string $slug) => Client::query()->where('code', $slug)->where('is_active', true)->firstOrFail());
-
 Route::middleware('module:client_portal')->prefix('portal/{portalClient}')->where(['portalClient' => '[A-Za-z0-9_-]{1,40}'])->name('portal.')->group(function () {
     Route::get('/login', [PortalSessionController::class, 'create'])->name('login');
     Route::post('/login', [PortalSessionController::class, 'store'])->name('login.store');

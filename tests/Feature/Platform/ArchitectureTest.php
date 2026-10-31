@@ -87,6 +87,17 @@ class ArchitectureTest extends TestCase
         }
     }
 
+    public function test_route_files_declare_no_binding_lost_when_routes_are_cached(): void
+    {
+        $found = collect(File::allFiles(base_path('routes')))
+            ->filter(fn (SplFileInfo $file) => preg_match('/Route::(bind|model|pattern|patterns)\(/', $file->getContents()) === 1)
+            ->map(fn (SplFileInfo $file) => 'routes/'.$file->getRelativePathname())
+            ->values()
+            ->all();
+
+        $this->assertSame([], $found, 'Route bindings and patterns belong in a service provider: route files are not loaded when routes are cached');
+    }
+
     public function test_blade_views_print_unescaped_output_only_in_the_reviewed_places(): void
     {
         $found = [];
