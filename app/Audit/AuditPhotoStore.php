@@ -8,6 +8,7 @@ use App\DesignOfficeWorkflow\FieldDataGuard;
 use App\DesignOfficeWorkflow\FieldPhotoRules;
 use App\DesignOfficeWorkflow\WorkflowException;
 use App\Enums\AuditFolder;
+use App\Enums\AuditGeoMissingReason;
 use App\Enums\AuditMode;
 use App\Enums\AuditPoleSection;
 use App\Models\Audit;
@@ -38,7 +39,8 @@ class AuditPhotoStore
 
     /**
      * Receives a photo. A technician cannot add photos to a validated audit and their photo reopens a finished one;
-     * only a manager imports photos taken elsewhere. An audit of the design office workflow adds its own rules
+     * only a manager imports photos taken elsewhere. A photo taken without a position records the absence of signal the
+     * phone declared (it is still received). An audit of the design office workflow adds its own rules
      * (FieldPhotoRules): who sends, the location or a declared absence of signal, no photo while the box is reviewed
      * or once the PM is closed, and the same content in the same folder is received once.
      *
@@ -77,7 +79,7 @@ class AuditPhotoStore
             $position = $imported ? null : $this->position($meta['latitude'] ?? null, $meta['longitude'] ?? null);
             $geo = $audit->usesDesignOfficeWorkflow()
                 ? $this->designOffice->admit($actor, $audit, $box, $imported, $position, $meta['geo_missing_reason'] ?? null, $meta['captured_at'] ?? null)
-                : null;
+                : $this->declaredMissingPosition($imported, $position, $meta['geo_missing_reason'] ?? null);
 
             try {
                 $stored = UploadRules::isPhoto($upload) ? $this->files->handleImage($upload) : throw new InvalidArgumentException('Not a photo');
@@ -88,7 +90,7 @@ class AuditPhotoStore
             $timing = $this->log->timing($actor, $meta['client_created_at'] ?? null, ($meta['queued'] ?? false) === true);
             $receivedAt = $timing['received_at'];
 
-            if ($geo !== null && ($same = $this->designOffice->duplicateOf($audit, $box, $point?->id, $folder, $subfolder, $stored)) !== null) {
+            if ($audit->usesDesignOfficeWorkflow() && ($same = $this->designOffice->duplicateOf($audit, $box, $point?->id, $folder, $subfolder, $stored)) !== null) {
                 $this->files->release($stored);
                 $this->log->record($actor, $audit, $operationId, 'photo', $hash, $timing);
 
@@ -100,10 +102,10 @@ class AuditPhotoStore
                 'stored_file_id' => $stored->id, 'captured_at' => $this->capturedAt($meta['captured_at'] ?? null, $receivedAt, $imported),
                 'latitude' => $position[0] ?? null, 'longitude' => $position[1] ?? null,
                 'user_id' => $actor->id, 'user_name' => $actor->name, 'is_imported' => $imported, 'received_at' => $receivedAt,
-                'is_geo_missing' => $geo['is_geo_missing'] ?? false, 'geo_missing_reason' => $geo['geo_missing_reason'] ?? null,
+                'is_geo_missing' => $geo['is_geo_missing'], 'geo_missing_reason' => $geo['geo_missing_reason'],
             ]);
 
-            if ($geo !== null) {
+            if ($audit->usesDesignOfficeWorkflow()) {
                 $this->designOffice->recordReceived($actor, $photo, $stored);
             }
 
@@ -116,6 +118,22 @@ class AuditPhotoStore
 
             return ['duplicate' => false, 'revision' => $audit->revision, 'photo' => $photo->id];
         });
+    }
+
+    /**
+     * Outside the design office workflow: a photo without a position is marked with the absence of signal the phone
+     * declared; anything else (an imported photo, an unknown reason) is not marked.
+     *
+     * @param  array{string, string}|null  $position
+     * @return array{is_geo_missing: bool, geo_missing_reason: AuditGeoMissingReason|null}
+     */
+    private function declaredMissingPosition(bool $imported, ?array $position, mixed $declaredReason): array
+    {
+        $reason = ! $imported && $position === null && is_string($declaredReason) ? AuditGeoMissingReason::tryFrom($declaredReason) : null;
+
+        return in_array($reason, AuditGeoMissingReason::declarable(), true)
+            ? ['is_geo_missing' => true, 'geo_missing_reason' => $reason]
+            : ['is_geo_missing' => false, 'geo_missing_reason' => null];
     }
 
     /**

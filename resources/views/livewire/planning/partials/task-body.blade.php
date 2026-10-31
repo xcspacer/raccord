@@ -12,6 +12,9 @@
     @if ($task->state_code !== '' && $task->state_code !== 'HO')
         <span class="task-state">{{ $task->state_code }}</span>
     @endif
+    @if ($cell['punch'])
+        @include('livewire.planning.partials.punch-line', ['punch' => $cell['punch'], 'day' => $day, 'flagsAccuracy' => ! $technicianView])
+    @endif
     @if ($task->label)
         <div class="task-label">{{ $task->label }}</div>
     @endif
@@ -21,8 +24,6 @@
     @if ($task->note)
         <div class="task-note">{{ $task->note }}</div>
     @endif
-@endif
-
-@if ($cell['punch'])
+@elseif ($cell['punch'])
     @include('livewire.planning.partials.punch-line', ['punch' => $cell['punch'], 'day' => $day, 'flagsAccuracy' => ! $technicianView])
 @endif

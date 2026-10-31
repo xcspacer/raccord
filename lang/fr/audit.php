@@ -213,6 +213,7 @@ return [
         'todo_fibre' => 'Type de câble à choisir',
         'todo_position' => 'Position de la boîte (GPS) à confirmer',
         'todo_status' => 'Statut final de la boîte à choisir',
+        'no_gps_mark' => 'Sans GPS',
         'confirm_remove_cable' => 'Supprimer ce câble ?',
         'confirm_delete_photo' => 'Supprimer cette photo ?',
         'messages' => 'Messages',
@@ -270,6 +271,8 @@ return [
         'local_deleted' => ':count photo(s) supprimée(s) du téléphone.',
     ],
     'camera' => [
+        'no_signal' => 'Pas de signal GPS : vous pouvez prendre les photos, elles seront marquées « sans GPS ».',
+        'no_signal_stamp' => 'Sans GPS – pas de signal',
         'use_count' => '✓ Utiliser :count photo(s)',
         'discard_shots' => 'Abandonner les :count photo(s) prises ?',
         'save_to_gallery' => '💾 Enregistrer aussi dans la galerie du téléphone',

@@ -213,6 +213,7 @@ return [
         'todo_fibre' => 'Cable type to choose',
         'todo_position' => 'Box position (GPS) to confirm',
         'todo_status' => 'Final status of the box to choose',
+        'no_gps_mark' => 'No GPS',
         'confirm_remove_cable' => 'Delete this cable?',
         'confirm_delete_photo' => 'Delete this photo?',
         'messages' => 'Messages',
@@ -270,6 +271,8 @@ return [
         'local_deleted' => ':count photo(s) deleted from this phone.',
     ],
     'camera' => [
+        'no_signal' => 'No GPS signal: you can take the photos, they will be marked “no GPS”.',
+        'no_signal_stamp' => 'No GPS – no signal',
         'use_count' => '✓ Use :count photo(s)',
         'discard_shots' => 'Discard the :count photo(s) taken?',
         'save_to_gallery' => '💾 Also save in the phone’s gallery',

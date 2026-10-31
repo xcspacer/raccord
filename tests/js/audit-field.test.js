@@ -4,6 +4,7 @@ import { needsCatchUp as livewireNeedsCatchUp } from '../../resources/js/compone
 import { needsCatchUp, stalePhotoCount, STALE_AFTER } from '../../resources/js/audit/sync';
 import { boxPoint } from '../../resources/js/audit/geo';
 import { chipState } from '../../resources/js/audit/sync-chip';
+import { noSignalReason } from '../../resources/js/components/burst-camera';
 
 describe('error log', () => {
     it('keeps only the last 40 entries', () => {
@@ -158,6 +159,15 @@ describe('formatting a size', () => {
         expect(formatSize(2500000, 'en-GB')).toBe('2.5 MB');
         expect(formatSize(3200000000, 'en-GB')).toBe('3.2 GB');
         expect(formatSize(400, 'en-GB')).toBe('0.4 kB');
+    });
+});
+
+describe('a photo taken without GPS signal', () => {
+    it('says why it has no position, as the server records it', () => {
+        expect(noSignalReason(false, 3)).toBe('network');
+        expect(noSignalReason(true, 3)).toBe('timeout');
+        expect(noSignalReason(true, null)).toBe('timeout');
+        expect(noSignalReason(true, 2)).toBe('unavailable');
     });
 });
 

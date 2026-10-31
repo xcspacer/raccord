@@ -571,7 +571,7 @@ const boxScreen = () => ({
         }
 
         for (const shot of result.shots) {
-            await this.engine.enqueuePhoto({ box: this.box.name, folder, subfolder, captured_at: new Date().toISOString(), latitude: shot.lat, longitude: shot.lng }, shot.blob);
+            await this.engine.enqueuePhoto({ box: this.box.name, folder, subfolder, captured_at: new Date().toISOString(), latitude: shot.lat, longitude: shot.lng, geo_missing_reason: shot.reason }, shot.blob);
         }
     },
 

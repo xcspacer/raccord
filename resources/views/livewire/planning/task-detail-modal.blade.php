@@ -11,6 +11,9 @@
                 @if ($task->state_code !== '' && $task->state_code !== 'HO')
                     <span class="task-state">{{ $task->state_code }}</span>
                 @endif
+                @if ($punch)
+                    @include('livewire.planning.partials.punch-line', ['punch' => $punch, 'day' => $day, 'flagsAccuracy' => false])
+                @endif
                 @if ($task->label)
                     <div class="task-label">{{ $task->label }}</div>
                 @endif

@@ -163,7 +163,7 @@ class AuditSnapshot
     {
         return [
             'id' => $photo->id, 'folder' => $photo->folder, 'subfolder' => $photo->subfolder, 'captured_at' => $photo->captured_at->toIso8601String(), 'user_id' => $photo->user_id,
-            'user_name' => $photo->user_name, 'imported' => $photo->is_imported,
+            'user_name' => $photo->user_name, 'imported' => $photo->is_imported, 'no_gps' => $photo->is_geo_missing,
             'thumb_url' => route('audits.photos.show', ['photo' => $photo->id, 'variant' => 'thumb'], false), 'full_url' => route('audits.photos.show', ['photo' => $photo->id, 'variant' => 'full'], false),
         ];
     }

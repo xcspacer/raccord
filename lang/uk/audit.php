@@ -213,6 +213,7 @@ return [
         'todo_fibre' => 'Оберіть тип кабелю',
         'todo_position' => 'Підтвердьте розташування коробки (GPS)',
         'todo_status' => 'Оберіть остаточний статус коробки',
+        'no_gps_mark' => 'Без GPS',
         'confirm_remove_cable' => 'Видалити цей кабель?',
         'confirm_delete_photo' => 'Видалити це фото?',
         'messages' => 'Повідомлення',
@@ -270,6 +271,8 @@ return [
         'local_deleted' => 'Фото видалено з телефону: :count.',
     ],
     'camera' => [
+        'no_signal' => 'Немає сигналу GPS: можна фотографувати, фото буде позначено «без GPS».',
+        'no_signal_stamp' => 'Без GPS – немає сигналу',
         'use_count' => '✓ Використати фото: :count',
         'discard_shots' => 'Відкинути зроблені фото (:count)?',
         'save_to_gallery' => '💾 Зберегти також у галереї телефону',

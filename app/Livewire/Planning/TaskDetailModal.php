@@ -13,6 +13,7 @@ use App\MediaLibrary\MediaLibrary;
 use App\MediaLibrary\TaskMediaTargets;
 use App\Models\Absence;
 use App\Models\Audit;
+use App\Models\DayPunch;
 use App\Models\MediaFile;
 use App\Models\Task;
 use App\Models\User;
@@ -146,6 +147,7 @@ class TaskDetailModal extends Component
             'day' => $day,
             'detail' => $task->displayDetail($detail),
             'absence' => $this->absenceType($user, $day),
+            'punch' => DayPunch::query()->where('user_id', $user->id)->whereDate('date', $day)->first(),
             'team' => $site === null ? [] : $this->teamNames($site),
             'cabinet' => $site?->cabinet_ref,
             'boxes' => $boxes,

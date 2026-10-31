@@ -5,8 +5,10 @@ namespace Tests\Feature\Audit;
 use App\Audit\AuditOperationException;
 use App\Audit\AuditOperations;
 use App\Audit\AuditPhotoStore;
+use App\Audit\AuditSnapshot;
 use App\Audit\AuditTree;
 use App\Audit\OpenAudit;
+use App\Enums\AuditGeoMissingReason;
 use App\Enums\AuditMode;
 use App\Enums\PlanningMode;
 use App\Enums\ProjectType;
@@ -188,6 +190,26 @@ class AuditPhotosTest extends TestCase
         $photo = AuditPhoto::query()->findOrFail($id);
         $this->assertTrue($photo->is_imported);
         $this->assertNull($photo->latitude);
+    }
+
+    public function test_a_photo_taken_without_signal_is_received_and_marked_no_gps(): void
+    {
+        $noSignal = AuditPhoto::query()->findOrFail($this->upload($this->technician, ['geo_missing_reason' => 'network'])->assertOk()->json('photo'));
+        $this->assertTrue($noSignal->is_geo_missing);
+        $this->assertSame(AuditGeoMissingReason::Network, $noSignal->geo_missing_reason);
+        $this->assertNull($noSignal->latitude);
+
+        $located = AuditPhoto::query()->findOrFail($this->upload($this->technician, ['latitude' => 43.9, 'longitude' => 2.1, 'geo_missing_reason' => 'timeout'])->assertOk()->json('photo'));
+        $this->assertFalse($located->is_geo_missing);
+        $this->assertNull($located->geo_missing_reason);
+
+        foreach (['imported', 'anything'] as $reason) {
+            $photo = AuditPhoto::query()->findOrFail($this->upload($this->technician, ['geo_missing_reason' => $reason])->assertOk()->json('photo'));
+            $this->assertFalse($photo->is_geo_missing);
+        }
+
+        $boxes = app(AuditSnapshot::class)->for($this->audit->refresh(), $this->manager)['boxes'];
+        $this->assertSame([true, false, false, false], array_column(array_merge(...array_column($boxes, 'photos')), 'no_gps'));
     }
 
     public function test_bad_uploads_and_dates_are_handled(): void

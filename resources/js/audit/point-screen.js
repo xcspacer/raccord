@@ -144,7 +144,7 @@ const pointMembers = {
         });
 
         for (const shot of result?.shots ?? []) {
-            await this.engine.enqueuePhoto({ point: this.point.id, subfolder, captured_at: new Date().toISOString(), latitude: shot.lat, longitude: shot.lng }, shot.blob);
+            await this.engine.enqueuePhoto({ point: this.point.id, subfolder, captured_at: new Date().toISOString(), latitude: shot.lat, longitude: shot.lng, geo_missing_reason: shot.reason }, shot.blob);
         }
     },
 

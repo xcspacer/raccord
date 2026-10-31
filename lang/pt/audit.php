@@ -213,6 +213,7 @@ return [
         'todo_fibre' => 'Tipo de cabo por escolher',
         'todo_position' => 'Posição da caixa (GPS) por confirmar',
         'todo_status' => 'Estado final da caixa por escolher',
+        'no_gps_mark' => 'Sem GPS',
         'confirm_remove_cable' => 'Apagar este cabo?',
         'confirm_delete_photo' => 'Apagar esta foto?',
         'messages' => 'Mensagens',
@@ -270,6 +271,8 @@ return [
         'local_deleted' => ':count foto(s) apagada(s) do telemóvel.',
     ],
     'camera' => [
+        'no_signal' => 'Sem sinal GPS: pode tirar as fotos, ficam marcadas «sem GPS».',
+        'no_signal_stamp' => 'Sem GPS – sem sinal',
         'use_count' => '✓ Usar :count foto(s)',
         'discard_shots' => 'Abandonar as :count foto(s) tiradas?',
         'save_to_gallery' => '💾 Guardar também na galeria do telemóvel',

@@ -211,6 +211,18 @@
     left: 4px;
 }
 
+.site-screen__photo-nogps {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: var(--red);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 600;
+}
+
 .site-screen__photo-delete {
     position: absolute;
     top: 4px;
