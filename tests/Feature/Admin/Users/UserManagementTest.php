@@ -78,7 +78,7 @@ class UserManagementTest extends TestCase
             ->set('form.name', 'Second admin')
             ->set('form.username', 'admin2')
             ->set('form.role', Role::Administrator->value)
-            ->set('form.password', 'eleven-char')
+            ->set('form.password', 'seven-c')
             ->call('create')
             ->assertHasErrors(['form.password'])
             ->assertHasNoErrors(['form.agencyId']);

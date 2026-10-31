@@ -9,12 +9,12 @@ use Illuminate\Validation\Rules\Password;
 trait PasswordValidationRules
 {
     /**
-     * Get the validation rules used to validate passwords (administrators need a longer password).
+     * Get the validation rules used to validate passwords.
      *
      * @return array<int, Rule|array<mixed>|string>
      */
-    protected function passwordRules(?User $user = null): array
+    protected function passwordRules(): array
     {
-        return ['required', 'string', Password::min($user?->minimumPasswordLength() ?? 10), 'confirmed'];
+        return ['required', 'string', Password::min(User::MINIMUM_PASSWORD_LENGTH), 'confirmed'];
     }
 }

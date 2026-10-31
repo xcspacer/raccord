@@ -10,7 +10,6 @@ return [
     'back_to_login' => 'Retour à la connexion',
     'reset_title' => 'Nouveau mot de passe',
     'reset_intro' => 'Choisissez un nouveau mot de passe. Vous devrez ensuite vous reconnecter sur tous vos appareils.',
-    'minimum' => 'Au moins 10 caractères (12 pour les administrateurs).',
     'reset_submit' => 'Enregistrer le mot de passe',
     'mail' => [
         'subject' => '[:platform] Réinitialisation de votre mot de passe',

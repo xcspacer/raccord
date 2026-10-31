@@ -190,7 +190,7 @@ class PasswordResetTest extends TestCase
         $this->post(route('login'), ['username' => $user->username, 'password' => 'a-brand-new-password'])->assertRedirect('/');
     }
 
-    public function test_the_new_password_follows_the_password_rules_of_the_role(): void
+    public function test_the_new_password_follows_the_password_rules(): void
     {
         $this->seed(RoleSeeder::class);
         $admin = User::factory()->withRole(Role::Administrator)->create(['email' => 'admin@example.test']);
@@ -199,8 +199,8 @@ class PasswordResetTest extends TestCase
         $this->from(route('password.reset', ['token' => $token]))->post(route('password.update'), [
             'token' => $token,
             'email' => 'admin@example.test',
-            'password' => 'eleven-char',
-            'password_confirmation' => 'eleven-char',
+            'password' => 'seven-c',
+            'password_confirmation' => 'seven-c',
         ])->assertSessionHasErrors('password');
 
         $this->post(route('password.update'), [

@@ -69,7 +69,7 @@ class ProfileModal extends Component
             'email' => ['nullable', 'email', 'max:160', Rule::unique('users', 'email')->ignore($user->id)],
             'phone' => ['nullable', 'string', 'max:40'],
             'currentPassword' => $wantsNewPassword ? ['required', 'current_password:web'] : ['nullable'],
-            'newPassword' => $wantsNewPassword ? ['string', Password::min($user->minimumPasswordLength()), 'different:currentPassword'] : ['nullable'],
+            'newPassword' => $wantsNewPassword ? ['string', Password::min(User::MINIMUM_PASSWORD_LENGTH), 'different:currentPassword'] : ['nullable'],
             'btpCard' => $documentRules,
             'drivingLicence' => $documentRules,
         ]);

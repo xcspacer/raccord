@@ -125,7 +125,7 @@ class UserCard extends Component
         $this->authorize('update', User::class);
         $user = $this->user();
 
-        $this->validate(['newPassword' => ['required', 'string', Password::min($user->minimumPasswordLength())]]);
+        $this->validate(['newPassword' => ['required', 'string', Password::min(User::MINIMUM_PASSWORD_LENGTH)]]);
 
         $resetPassword->handle($user, $this->newPassword);
         $this->newPassword = '';

@@ -37,7 +37,7 @@ class ClientControlPage extends Component
     use ConfirmsPassword;
     use WithFileUploads;
 
-    public const int PASSWORD_MIN = 10;
+    public const int PASSWORD_MIN = User::MINIMUM_PASSWORD_LENGTH;
 
     public string $name = '';
 

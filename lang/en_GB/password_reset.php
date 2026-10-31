@@ -10,7 +10,6 @@ return [
     'back_to_login' => 'Back to sign-in',
     'reset_title' => 'New password',
     'reset_intro' => 'Choose a new password. You will then sign in again on all your devices.',
-    'minimum' => 'At least 10 characters (12 for administrators).',
     'reset_submit' => 'Save the password',
     'mail' => [
         'subject' => '[:platform] Reset your password',

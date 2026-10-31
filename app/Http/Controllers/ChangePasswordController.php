@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -18,7 +19,7 @@ class ChangePasswordController extends Controller
         }
 
         return view('auth.change-password', [
-            'minimumLength' => $request->user()->minimumPasswordLength(),
+            'minimumLength' => User::MINIMUM_PASSWORD_LENGTH,
         ]);
     }
 }

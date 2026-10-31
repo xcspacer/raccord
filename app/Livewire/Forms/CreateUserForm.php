@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Enums\Role;
+use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Livewire\Form;
@@ -40,7 +41,7 @@ class CreateUserForm extends Form
             'vehicle' => ['nullable', 'string', 'max:120'],
             'email' => ['nullable', 'email', 'max:160', Rule::unique('users', 'email')],
             'phone' => ['nullable', 'string', 'max:40'],
-            'password' => ['required', 'string', Password::min($role === Role::Administrator ? 12 : 10)],
+            'password' => ['required', 'string', Password::min(User::MINIMUM_PASSWORD_LENGTH)],
         ];
     }
 

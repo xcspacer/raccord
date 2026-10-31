@@ -73,7 +73,8 @@
 
 .map__stage {
     position: relative;
-    height: min(62vh, 600px);
+    /* Grows with the window down to the gap a 900 px tall window leaves below it (never shorter than 62vh). */
+    height: max(62vh, calc(100vh - 342px));
     min-height: 320px;
     overflow: hidden;
     mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, #000 70%, transparent 100%);

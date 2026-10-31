@@ -10,7 +10,6 @@ return [
     'back_to_login' => 'Volver al inicio de sesión',
     'reset_title' => 'Nueva contraseña',
     'reset_intro' => 'Elija una nueva contraseña. Después tendrá que volver a iniciar sesión en todos sus dispositivos.',
-    'minimum' => 'Al menos 10 caracteres (12 para los administradores).',
     'reset_submit' => 'Guardar la contraseña',
     'mail' => [
         'subject' => '[:platform] Restablecer su contraseña',

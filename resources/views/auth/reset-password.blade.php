@@ -18,7 +18,7 @@
             <div class="field">
                 <label class="field__label" for="password">{{ __('passwords.new') }}</label>
                 <input class="field__input" type="password" id="password" name="password" autocomplete="new-password" required>
-                <p class="field__hint">{{ __('password_reset.minimum') }}</p>
+                <p class="field__hint">{{ __('passwords.minimum', ['count' => \App\Models\User::MINIMUM_PASSWORD_LENGTH]) }}</p>
                 @error('password')
                     <p class="field__error" role="alert">{{ $message }}</p>
                 @enderror

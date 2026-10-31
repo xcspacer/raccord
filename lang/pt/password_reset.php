@@ -10,7 +10,6 @@ return [
     'back_to_login' => 'Voltar ao início de sessão',
     'reset_title' => 'Nova palavra-passe',
     'reset_intro' => 'Escolha uma nova palavra-passe. Depois terá de voltar a iniciar sessão em todos os seus dispositivos.',
-    'minimum' => 'Pelo menos 10 caracteres (12 para os administradores).',
     'reset_submit' => 'Guardar a palavra-passe',
     'mail' => [
         'subject' => '[:platform] Reposição da palavra-passe',

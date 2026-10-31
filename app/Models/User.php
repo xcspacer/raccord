@@ -49,6 +49,9 @@ class User extends Authenticatable
      */
     public const int LEGACY_PASSWORD_DAYS = 90;
 
+    /** Shortest password accepted, for every role (client portal accounts included). */
+    public const int MINIMUM_PASSWORD_LENGTH = 8;
+
     /** @use HasFactory<UserFactory> */
     use HasFactory, HasRoles, Notifiable, SoftDeletes;
 
@@ -173,14 +176,6 @@ class User extends Authenticatable
         }
 
         $this->notify((new PasswordResetLink($token))->locale($this->locale ?: config('app.locale')));
-    }
-
-    /**
-     * Administrators need a longer password than everyone else.
-     */
-    public function minimumPasswordLength(): int
-    {
-        return $this->hasRole(Role::Administrator->value) ? 12 : 10;
     }
 
     /**

@@ -82,16 +82,24 @@ class ChangePasswordTest extends TestCase
         $this->assertTrue($user->refresh()->must_change_password);
     }
 
-    public function test_administrators_need_twelve_characters(): void
+    public function test_eight_characters_are_enough_for_every_role(): void
     {
         $this->seed(RoleSeeder::class);
         $admin = User::factory()->withRole(Role::Administrator)->create(['must_change_password' => true]);
 
         $this->actingAs($admin)->put(route('user-password.update'), [
             'current_password' => 'password',
-            'password' => 'eleven-char',
-            'password_confirmation' => 'eleven-char',
+            'password' => 'seven-c',
+            'password_confirmation' => 'seven-c',
         ])->assertSessionHasErrorsIn('updatePassword', 'password');
+
+        $this->actingAs($admin)->put(route('user-password.update'), [
+            'current_password' => 'password',
+            'password' => 'eight-ch',
+            'password_confirmation' => 'eight-ch',
+        ])->assertSessionHasNoErrors();
+
+        $this->assertTrue(Hash::check('eight-ch', (string) $admin->refresh()->password));
     }
 
     public function test_password_change_page_is_not_shown_when_not_required(): void
