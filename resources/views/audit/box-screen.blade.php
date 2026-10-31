@@ -36,6 +36,15 @@
                 </div>
                 <div class="audit__bar" role="progressbar" x-bind:aria-valuenow="percent" aria-valuemin="0" aria-valuemax="100"><span class="audit__bar-fill" x-effect="paint($el, percent)"></span></div>
 
+                <section class="audit__todo" x-show="todo.length > 0">
+                    <strong class="audit__todo-title" x-text="t('todo_title')"></strong>
+                    <ul class="audit__todo-list">
+                        <template x-for="item in todo" x-bind:key="item">
+                            <li x-text="item"></li>
+                        </template>
+                    </ul>
+                </section>
+
                 <div class="site-screen__row" x-show="manager">
                     <button type="button" class="btn btn--ghost site-screen__edit" x-show="canEditMode" x-on:click="startEditing" x-text="editText"></button>
                     <button type="button" class="btn btn--primary" x-show="editing" x-on:click="stopEditing" x-text="finishEditText"></button>

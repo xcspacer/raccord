@@ -161,6 +161,35 @@ describe('formatting a size', () => {
     });
 });
 
+describe('what keeps a box under 100 %', () => {
+    it('lists each missing thing, and nothing once the box is complete', async () => {
+        globalThis.document ??= { cookie: '', addEventListener: () => {} };
+        const { default: boxScreen } = await import('../../resources/js/audit/box-screen');
+        const screen = boxScreen();
+        const photo = (folder, subfolder = null) => ({ folder, subfolder });
+
+        screen.config = {
+            texts: { todo_photos: 'Photos :folder', todo_cable: ':cable: :missing', cable_n: 'Cable :n', todo_capacity: 'capacity', todo_fibre_type: 'fibre type', todo_cable_label: 'label (or :no_label)', no_label: 'no label', todo_position: 'Position', todo_status: 'Status' },
+            labels: { folders: { surroundings: 'Surroundings', interior: 'Interior', closed: 'Closed', open: 'Open', tco: 'TCO' }, poleSections: {} },
+        };
+        screen.boxName = 'PBO-1';
+        screen.view = { viewer: { manager: true }, audit: { mode: 'optical' }, boxes: [{
+            name: 'PBO-1', kind: 'pbo', support: 'chamber', status: null, confirmed: null,
+            photos: [photo('surroundings'), photo('interior'), photo('closed'), photo('open'), photo('cassettes')],
+            cables: [{ code: 'A', capacity: 12, fibre_type: 'g657', has_no_label: false }, { code: 'B', capacity: null, fibre_type: 'g657', has_no_label: true }],
+        }] };
+
+        expect(screen.todo).toEqual(['Photos TCO', 'Cable 1: label (or no label)', 'Cable 2: capacity', 'Position', 'Status']);
+
+        Object.assign(screen.view.boxes[0], { status: 'ok', confirmed: { at: 1 } });
+        screen.view.boxes[0].photos.push(photo('tco'), photo('labels', 'A'));
+        screen.view.boxes[0].cables[1].capacity = 6;
+
+        expect(screen.percent).toBe(100);
+        expect(screen.todo).toEqual([]);
+    });
+});
+
 describe('recheck from the box screen', () => {
     it('opens in edit mode only for a manager editing the box', async () => {
         globalThis.document ??= { cookie: '', addEventListener: () => {} };

@@ -234,6 +234,28 @@
     color: var(--amber);
 }
 
+/* Box screen: what still keeps the box under 100 %. */
+.audit__todo {
+    padding: 10px 14px;
+    border: 1px solid var(--red);
+    border-radius: 12px;
+    background: rgba(228, 87, 46, 0.08);
+    color: var(--red-soft);
+    font-size: 13px;
+}
+
+.audit__todo-title {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--red);
+}
+
+.audit__todo-list {
+    margin: 0;
+    padding-left: 18px;
+    line-height: 1.6;
+}
+
 .audit__progress {
     display: grid;
     grid-template-columns: 1fr auto;

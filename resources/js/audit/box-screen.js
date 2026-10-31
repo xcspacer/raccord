@@ -308,6 +308,53 @@ const boxScreen = () => ({
         return this.box ? boxItems(this.box, this.mode).filter((item) => !item.done && item.key !== 'status').length : 0;
     },
 
+    /**
+     * What still keeps the box under 100 %, one line per missing thing (each incomplete cable says what it lacks).
+     */
+    get todo() {
+        if (!this.box || this.percent === 100) {
+            return [];
+        }
+
+        const box = this.box;
+
+        return boxItems(box, this.mode).filter((item) => !item.done).flatMap((item) => {
+            if (item.key === 'pole') {
+                const sections = ['whole', 'head', 'label'].filter((section) => photosOf(box, 'pole', section).length === 0);
+
+                return [this.t('todo_pole', { folder: this.config.labels.folders.pole, sections: sections.map((section) => this.config.labels.poleSections[section]).join(', ') })];
+            }
+
+            if (item.key === 'cable') {
+                return this.mode === 'optical' ? this.cableTodo(box) : [this.t('todo_fibre')];
+            }
+
+            if (['position', 'status'].includes(item.key)) {
+                return [this.t(`todo_${item.key}`)];
+            }
+
+            return [this.t('todo_photos', { folder: this.config.labels.folders[item.key] })];
+        });
+    },
+
+    cableTodo(box) {
+        const cables = box.cables ?? [];
+
+        if (cables.length === 0) {
+            return [this.t('todo_no_cable')];
+        }
+
+        return cables.flatMap((cable, index) => {
+            const lacks = [
+                cable.capacity ? null : this.t('todo_capacity'),
+                cable.fibre_type ? null : this.t('todo_fibre_type'),
+                cable.has_no_label || photosOf(box, 'labels', cable.code).length > 0 ? null : this.t('todo_cable_label', { no_label: this.t('no_label') }),
+            ].filter(Boolean);
+
+            return lacks.length > 0 ? [this.t('todo_cable', { cable: this.t('cable_n', { n: index + 1 }), missing: lacks.join(', ') })] : [];
+        });
+    },
+
     get folders() {
         if (!this.box) {
             return [];
